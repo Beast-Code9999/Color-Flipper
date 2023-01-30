@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Beast-Code9999/Color-Flipper/issues"
   },
-  "homepage": "https://github.com/Beast-Code9999/Color-Flipper#readme"
+  "homepage": "https://github.com/Beast-Code9999/Color-Flipper#readme",
+  "devDependencies": {
+    "node-sass": "^8.0.0"
+  }
 }
