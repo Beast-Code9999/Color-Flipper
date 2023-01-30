@@ -10,3 +10,38 @@ html {
 
 body {
   box-sizing: border-box; }
+
+/* start of footer */
+footer {
+  width: 100%;
+  margin-top: auto;
+  position: absolute;
+  padding: 4rem;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--color-text);
+  bottom: 0;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: lightblue; */ }
+
+footer a {
+  text-decoration: none;
+  color: var(--color-text);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+footer img {
+  width: 3rem;
+  height: auto;
+  transition: transform .7s ease-in-out;
+  margin-left: 1rem; }
+
+footer img:hover {
+  transition: all 0.5s ease-in-out;
+  transform: rotate(360deg) scale(1.5); }
+
+/* end of footer */
