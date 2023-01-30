@@ -1,0 +1,19 @@
+{
+  "name": "color-flipper",
+  "version": "1.0.0",
+  "description": "Dates:   * January 29th 2023: Date created",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beast-Code9999/Color-Flipper.git"
+  },
+  "author": "Beast Code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beast-Code9999/Color-Flipper/issues"
+  },
+  "homepage": "https://github.com/Beast-Code9999/Color-Flipper#readme"
+}
