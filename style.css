@@ -11,6 +11,14 @@ html {
 body {
   box-sizing: border-box; }
 
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-size: 4rem; }
+
 /* start of footer */
 footer {
   width: 100%;
