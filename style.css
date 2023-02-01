@@ -99,6 +99,9 @@ footer img:hover {
   height: 5.2rem;
   background-color: lightcoral; }
 
+.output__copy, .output__tick {
+  width: 2rem; }
+
 body {
   width: 100%;
   height: 100vh;
