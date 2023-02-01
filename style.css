@@ -78,6 +78,19 @@ footer img:hover {
     .top__share img {
       width: 3rem; }
 
+.spectrum {
+  width: 100%;
+  height: 22.8rem;
+  display: flex; }
+  .spectrum__output {
+    width: 20%;
+    height: 100%;
+    background-color: lightblue; }
+  .spectrum__canvas {
+    width: 80%;
+    height: 100%;
+    background-color: lightgreen; }
+
 body {
   width: 100%;
   height: 100vh;

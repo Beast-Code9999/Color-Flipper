@@ -38,7 +38,21 @@
 }
 
 .spectrum {
+    width: 100%;
+    height: 22.8rem;
+    display: flex;
 
+    &__output {
+        width: 20%;
+        height: 100%;
+        background-color: lightblue;
+    }
+
+    &__canvas {
+        width: 80%;
+        height: 100%;
+        background-color: lightgreen;
+    }
 }
 
 .color-slider {
