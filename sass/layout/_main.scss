@@ -13,3 +13,38 @@
     border: 2px solid $color-gray;
     border-radius: 1rem;
 }
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+
+
+    &__title {
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__share {
+        width: auto;
+        
+        & img {
+            width: 3rem;
+        }
+    }
+
+}
+
+.spectrum {
+
+}
+
+.color-slider {
+
+}
+
+.output {
+
+}
