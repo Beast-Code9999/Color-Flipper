@@ -64,15 +64,19 @@
 .output {
 
     &__top {
-        width: 80%;
+        width: 90%;
         @include flex(column, center, center); 
         border: 2px solid $color-gray;
         border-radius: 5px;
         height: 36px;
         margin: 5px auto 5px auto;
+        position: relative;
     }
     &__title {
-
+        background-color: red;
+        font-size: 1.6rem;
+        position: absolute;
+        top: -1rem;
     }
     &__code--hex {
 

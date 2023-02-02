@@ -100,7 +100,7 @@ footer img:hover {
   background-color: lightcoral; }
 
 .output__top {
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,7 +108,14 @@ footer img:hover {
   border: 2px solid #dbdde1;
   border-radius: 5px;
   height: 36px;
-  margin: 5px auto 5px auto; }
+  margin: 5px auto 5px auto;
+  position: relative; }
+
+.output__title {
+  background-color: red;
+  font-size: 1.6rem;
+  position: absolute;
+  top: -1rem; }
 
 .output__copy, .output__tick {
   width: 2rem; }
