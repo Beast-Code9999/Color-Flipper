@@ -112,13 +112,23 @@ footer img:hover {
   position: relative; }
 
 .output__title {
-  background-color: red;
+  background-color: #fff;
   font-size: 1.6rem;
   position: absolute;
-  top: -1rem; }
+  top: -1rem;
+  padding: 0 .5rem; }
+
+.output__code--hex {
+  font-size: 1.6rem;
+  color: #60636a; }
 
 .output__copy, .output__tick {
-  width: 2rem; }
+  width: 2.5rem;
+  position: absolute;
+  right: .5rem;
+  top: .4rem; }
+  .output__copy:hover, .output__tick:hover {
+    cursor: pointer; }
 
 body {
   width: 100%;

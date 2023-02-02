@@ -73,16 +73,25 @@
         position: relative;
     }
     &__title {
-        background-color: red;
+        background-color: #fff;
         font-size: 1.6rem;
         position: absolute;
         top: -1rem;
+        padding: 0 .5rem;
     }
     &__code--hex {
-
+        font-size: 1.6rem;
+        color: $color-gray-dark;
     }
     &__copy, &__tick {
-        width: 2rem;
+        width: 2.5rem;
+        position: absolute;
+        right: .5rem;
+        top: .4rem;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__bottom {
