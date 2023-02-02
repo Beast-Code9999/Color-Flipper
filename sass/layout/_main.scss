@@ -64,7 +64,12 @@
 .output {
 
     &__top {
-    
+        width: 80%;
+        @include flex(column, center, center); 
+        border: 2px solid $color-gray;
+        border-radius: 5px;
+        height: 36px;
+        margin: 5px auto 5px auto;
     }
     &__title {
 

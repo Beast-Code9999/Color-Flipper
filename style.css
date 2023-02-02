@@ -99,6 +99,17 @@ footer img:hover {
   height: 5.2rem;
   background-color: lightcoral; }
 
+.output__top {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #dbdde1;
+  border-radius: 5px;
+  height: 36px;
+  margin: 5px auto 5px auto; }
+
 .output__copy, .output__tick {
   width: 2rem; }
 
