@@ -64,15 +64,25 @@
 .output {
 
     &__top {
+    
+    }
+    &__title {
 
+    }
+    &__hex-code {
+
+    }
+    &__copy, &__tick {
+        width: 2rem;
     }
 
     &__bottom {
 
     }
-
-
-    &__copy, &__tick {
-        width: 2rem;
+    &__RGB {
+        
     }
+
+
+
 }
