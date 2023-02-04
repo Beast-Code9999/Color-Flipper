@@ -138,6 +138,12 @@ footer img:hover {
     width: 25%;
     position: relative;
     float: left; }
+  .output__code {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem; }
   .output__border--small {
     width: 95%;
     height: 3.6rem;
