@@ -132,10 +132,12 @@ footer img:hover {
   .output__bottom {
     width: 90%;
     height: auto;
-    display: block; }
+    display: block;
+    margin: 0 auto; }
   .output__RGB, .output__CMYK, .output__HSV, .output__HSL {
     width: 25%;
-    position: relative; }
+    position: relative;
+    float: left; }
 
 body {
   width: 100%;

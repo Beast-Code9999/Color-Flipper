@@ -106,11 +106,12 @@
         width: 90%;
         height: auto;
         display: block;
-        
+        margin: 0 auto;
     }
     &__RGB, &__CMYK, &__HSV, &__HSL {
         width: 25%;
         position: relative;
+        float: left;
     }
     // &__CMYK {
     //     width: 25%;
