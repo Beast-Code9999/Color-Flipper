@@ -141,6 +141,9 @@
         }
     }
     &__border--small {
-
+        width: 95%;
+        height: 3.6rem;
+        border: 1px solid $color-gray;
+        border-radius: .5rem;
     }   
 }

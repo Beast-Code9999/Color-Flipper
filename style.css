@@ -138,6 +138,11 @@ footer img:hover {
     width: 25%;
     position: relative;
     float: left; }
+  .output__border--small {
+    width: 95%;
+    height: 3.6rem;
+    border: 1px solid #dbdde1;
+    border-radius: .5rem; }
 
 body {
   width: 100%;
