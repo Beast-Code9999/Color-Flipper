@@ -84,7 +84,10 @@
         }
 
         &--bottom {
-
+            left: 25%;
+            transform: translate(-50%,-10%);
+            padding: 0 .2rem;
+            color: $color-gray-dark;
         }
     }
     &__code--hex {
@@ -130,7 +133,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 1.2rem;
+        font-size: 1rem;
 
         &--rgb {
 
@@ -146,9 +149,10 @@
         }
     }
     &__border--small {
-        width: 95%;
+        width: 97%;
         height: 3.6rem;
         border: 1px solid $color-gray;
         border-radius: .5rem;
+        margin: .5rem auto;
     }   
 }

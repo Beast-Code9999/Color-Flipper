@@ -119,6 +119,11 @@ footer img:hover {
     .output__title--top {
       top: -1rem;
       padding: 0 .5rem; }
+    .output__title--bottom {
+      left: 25%;
+      transform: translate(-50%, -10%);
+      padding: 0 .2rem;
+      color: #60636a; }
   .output__code--hex {
     font-size: 1.6rem;
     color: #60636a; }
@@ -143,12 +148,13 @@ footer img:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.2rem; }
+    font-size: 1rem; }
   .output__border--small {
-    width: 95%;
+    width: 97%;
     height: 3.6rem;
     border: 1px solid #dbdde1;
-    border-radius: .5rem; }
+    border-radius: .5rem;
+    margin: .5rem auto; }
 
 body {
   width: 100%;
