@@ -103,20 +103,27 @@
     }
 
     &__bottom {
+        width: 90%;
+        height: auto;
         display: block;
+        
     }
-    &__RGB {
-
+    &__RGB, &__CMYK, &__HSV, &__HSL {
+        width: 25%;
+        position: relative;
     }
-    &__CMYK {
-
-    }
-    &__HSV {
-
-    }
-    &__HSL {
-
-    }
+    // &__CMYK {
+    //     width: 25%;
+    //     position: relative;
+    // }
+    // &__HSV {
+    //     width: 25%;
+    //     position: relative;
+    // }
+    // &__HSL {
+    //     width: 25%;
+    //     position: relative;
+    // }
     &__code {
 
         &--rgb {
@@ -134,5 +141,5 @@
     }
     &__border--small {
 
-    }
+    }   
 }

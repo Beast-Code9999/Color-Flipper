@@ -130,7 +130,12 @@ footer img:hover {
     .output__copy:hover, .output__tick:hover {
       cursor: pointer; }
   .output__bottom {
+    width: 90%;
+    height: auto;
     display: block; }
+  .output__RGB, .output__CMYK, .output__HSV, .output__HSL {
+    width: 25%;
+    position: relative; }
 
 body {
   width: 100%;
