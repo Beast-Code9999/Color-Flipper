@@ -60,7 +60,8 @@ footer img:hover {
 
 .container {
   width: 65rem;
-  height: 49rem;
+  height: auto;
+  padding-bottom: 2rem;
   border: 2px solid #dbdde1;
   border-radius: 1rem; }
 
