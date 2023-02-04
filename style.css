@@ -99,39 +99,38 @@ footer img:hover {
   height: 5.2rem;
   background-color: lightcoral; }
 
-.output__top {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #dbdde1;
-  border-radius: 5px;
-  height: 36px;
-  margin: 5px auto 5px auto;
-  position: relative; }
-
-.output__title {
-  background-color: #fff;
-  font-size: 1.6rem;
-  position: absolute;
-  top: -1rem;
-  padding: 0 .5rem; }
-
-.output__code--hex {
-  font-size: 1.6rem;
-  color: #60636a; }
-
-.output__copy, .output__tick {
-  width: 2.5rem;
-  position: absolute;
-  right: .5rem;
-  top: .4rem; }
-  .output__copy:hover, .output__tick:hover {
-    cursor: pointer; }
-
-.output__bottom {
-  display: block; }
+.output {
+  height: auto; }
+  .output__top {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #dbdde1;
+    border-radius: 5px;
+    height: 36px;
+    margin: 5px auto 5px auto;
+    position: relative; }
+  .output__title {
+    background-color: #fff;
+    font-size: 1.6rem;
+    position: absolute; }
+    .output__title--top {
+      top: -1rem;
+      padding: 0 .5rem; }
+  .output__code--hex {
+    font-size: 1.6rem;
+    color: #60636a; }
+  .output__copy, .output__tick {
+    width: 2.5rem;
+    position: absolute;
+    right: .5rem;
+    top: .4rem; }
+    .output__copy:hover, .output__tick:hover {
+      cursor: pointer; }
+  .output__bottom {
+    display: block; }
 
 body {
   width: 100%;

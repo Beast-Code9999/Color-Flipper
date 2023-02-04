@@ -62,6 +62,7 @@
 }
 
 .output {
+    height: auto;
 
     &__top {
         width: 90%;
@@ -76,8 +77,15 @@
         background-color: #fff;
         font-size: 1.6rem;
         position: absolute;
-        top: -1rem;
-        padding: 0 .5rem;
+        
+        &--top {
+            top: -1rem;
+            padding: 0 .5rem;
+        }
+
+        &--bottom {
+
+        }
     }
     &__code--hex {
         font-size: 1.6rem;
@@ -123,5 +131,8 @@
         &--hsl {
 
         }
+    }
+    &__border--small {
+
     }
 }
