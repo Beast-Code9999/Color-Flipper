@@ -25,6 +25,7 @@
         font-size: 2rem;
         display: flex;
         align-items: center;
+        user-select: none;
     }
 
     &__share {
@@ -32,6 +33,10 @@
         
         & img {
             width: 3rem;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 

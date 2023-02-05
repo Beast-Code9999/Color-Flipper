@@ -73,11 +73,14 @@ footer img:hover {
   .top__title {
     font-size: 2rem;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    user-select: none; }
   .top__share {
     width: auto; }
     .top__share img {
       width: 3rem; }
+      .top__share img:hover {
+        cursor: pointer; }
 
 .spectrum {
   width: 100%;
