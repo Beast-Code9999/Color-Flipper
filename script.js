@@ -19,6 +19,10 @@ colorCtx.fillRect(0, 0, colorCtx.canvas.width, colorCtx.canvas.height);
  colorCtx.canvas.height); 
 
 function createSpectrumCanvas() {
+
+}
+
+function createColorSlider() {
     
 }
 
