@@ -23,8 +23,10 @@ function createSpectrumCanvas() {
 }
 
 function createColorSlider() {
-    
+
 }
+
+const ctx = document.getElementById('color-slider');
 
 console.log(colorCanvas)
 // footer script
