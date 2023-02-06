@@ -18,6 +18,10 @@ colorCtx.fillRect(0, 0, colorCtx.canvas.width, colorCtx.canvas.height);
  colorCtx.fillRect(0, 0, colorCtx .canvas.width, 
  colorCtx.canvas.height); 
 
+function createSpectrumCanvas() {
+    
+}
+
 console.log(colorCanvas)
 // footer script
 function addDynamicFooterDate() {
