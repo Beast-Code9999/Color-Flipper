@@ -29,7 +29,7 @@ function createColorSlider() {
 colorCanvas.addEventListener('click',function(event){
     let x = event.clientX;  // Get X coordinate
     let y = event.clientY;  // Get Y coordinate
-    pixel = ColorCtx.getImageData(x,y,1,1)['data'];   // Read pixel Color
+    pixel = colorCtx.getImageData(x,y,1,1)['data'];   // Read pixel Color
     rgb = `rgb(${pixel[0]},${pixel[1]},${pixel[2]})`;
     document.body.style.background = rgb;    // Set this color to body of the document
  });
