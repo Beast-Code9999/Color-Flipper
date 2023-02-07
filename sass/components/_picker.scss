@@ -1,9 +1,12 @@
-.picker {
+#picker {
     width: 2rem;
-    height: 2rem;
+    height: 10rem;
     border-radius: 1rem;
     background-color: orangered;
     position: absolute;
-    top: 0;
-    left: 0;
+
+    right: 100px;
+    bottom: 100px;
+    display: block;
+
 }
