@@ -1,5 +1,5 @@
 const colorCanvas = document.getElementById('color-canvas');
-let colorCtx = colorCanvas.getContext('2d'); // creates a 2d context for the canvas
+const colorCtx = colorCanvas.getContext('2d'); // creates a 2d context for the canvas
 
 // Create a Horizontal Gradient(white to color)
 var color = 'rgba(0,0,255,1)';
@@ -23,6 +23,8 @@ function createSpectrumCanvas() {
 }
 
 function createColorSlider() {
+    const hue = document.getElementById('hue');
+    const ctx = hue.getContext('2d');
 
 }
 
