@@ -1,3 +1,5 @@
+'use strict';
+
 const colorCanvas = document.getElementById('color-canvas');
 const colorCtx = colorCanvas.getContext('2d'); // creates a 2d context for the canvas
 
@@ -32,14 +34,40 @@ const UIColorPicker = (function UIColorPIcker() {
 
 
     return {
-
+        init: init,
     }
 })();
+
+
+
 
 const inputSliderManager = (function inputSliderManager() {
 
 })();
 
+
+
+
+
+window.addEventListener('load', function() {
+    ColorPickerTool.init()
+})
+
+
+
+
+
+
+const ColorPickerTool = (function ColorPickerTool() {
+
+    const init = function init() {
+        UIColorPicker.init();
+    }
+
+    return {
+        init: init
+    }
+})();
 
 
 // colorCanvas.addEventListener('click',function(event){
