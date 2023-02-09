@@ -32,9 +32,15 @@ const UIColorPicker = (function UIColorPIcker() {
 
 
     return {
-        
+
     }
 })();
+
+const inputSliderManager = (function inputSliderManager() {
+
+})();
+
+
 
 // colorCanvas.addEventListener('click',function(event){
 //     let x = event.clientX;  // Get X coordinate
