@@ -28,6 +28,14 @@ function createColorSlider() {
 
 }
 
+const UIColorPicker = (function UIColorPIcker() {
+
+
+    return {
+        
+    }
+})();
+
 // colorCanvas.addEventListener('click',function(event){
 //     let x = event.clientX;  // Get X coordinate
 //     let y = event.clientY;  // Get Y coordinate
