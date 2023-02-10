@@ -11,6 +11,23 @@ html {
 body {
   box-sizing: border-box; }
 
+.picking-area {
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0) 50%, black 100%), -webkit-linear-gradient(left, gray 0%, rgba(128, 128, 128, 0) 100%);
+  background-image: -webkit-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0) 50%, black 100%), -webkit-linear-gradient(left, gray 0%, rgba(128, 128, 128, 0) 100%);
+  background-color: red; }
+
+#picker {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: orangered;
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+  display: block; }
+
 .header {
   width: 100%;
   display: flex;
@@ -95,7 +112,8 @@ footer img:hover {
     background-color: lightblue; }
   .spectrum__canvas {
     width: 70%;
-    height: 100%; }
+    height: 100%;
+    position: relative; }
 
 .color-slider {
   width: 100%;
