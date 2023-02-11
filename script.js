@@ -20,29 +20,48 @@
 //  colorCtx.fillRect(0, 0, colorCtx .canvas.width, 
 //  colorCtx.canvas.height); 
 
-function createSpectrumCanvas() {
-    //
-}
 
-function createColorSlider() {
-    const hue = document.getElementById('hue');
-    const ctx = hue.getContext('2d');
-
-}
 
 const UIColorPicker = (function UIColorPIcker() {
+
+    /** 
+	 * RGBA Color class
+	 *
+	 * HSV/HSB and HSL (hue, saturation, value / brightness, lightness)
+	 * @param hue			0-360
+	 * @param saturation	0-100
+	 * @param value 		0-100
+	 * @param lightness		0-100
+	 */
+    const setMouseTracking = function setMouseTracking() {
+
+    };
+
+
+    const init = function init() {
+
+    };
+
 
 
     return {
         init: init,
-    }
+    };
 })();
 
 
 
 
 const inputSliderManager = (function inputSliderManager() {
+	/*========== Make an element resizable relative to it's parent ==========*/
 
+    const init = function init() {
+
+    };
+
+    return {
+        init: init,
+    };
 })();
 
 
@@ -51,7 +70,7 @@ const inputSliderManager = (function inputSliderManager() {
 
 window.addEventListener('load', function() {
     ColorPickerTool.init()
-})
+});
 
 
 
@@ -62,11 +81,12 @@ const ColorPickerTool = (function ColorPickerTool() {
 
     const init = function init() {
         UIColorPicker.init();
-    }
+        inputSliderManager.init();
+    };
 
     return {
         init: init
-    }
+    };
 })();
 
 
@@ -78,13 +98,12 @@ const ColorPickerTool = (function ColorPickerTool() {
 //     document.body.style.background = rgb;    // Set this color to body of the document
 //  });
 
-const ctx = document.getElementById('color-slider').getContext('2d');
+// const ctx = document.getElementById('color-slider').getContext('2d');
 
-console.log(colorCanvas)
 // footer script
 function addDynamicFooterDate() {
     const footer = document.querySelector('.footer__year');
     let year = new Date().getFullYear()
     footer.textContent = year;
-}
-addDynamicFooterDate()
+};
+addDynamicFooterDate();
