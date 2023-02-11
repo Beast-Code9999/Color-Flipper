@@ -43,7 +43,6 @@ const UIColorPicker = (function UIColorPIcker() {
     };
 
 
-
     return {
         init: init,
     };
@@ -68,16 +67,19 @@ const inputSliderManager = (function inputSliderManager() {
 
 
 
+
+
 window.addEventListener('load', function() {
     ColorPickerTool.init()
 });
 
 
-
-
-
-
 const ColorPickerTool = (function ColorPickerTool() {
+
+
+    const canvasSample = function canvasSample() {
+        
+    }
 
     const init = function init() {
         UIColorPicker.init();
