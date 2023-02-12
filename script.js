@@ -34,7 +34,14 @@ const UIColorPicker = (function UIColorPIcker() {
 	 * @param lightness		0-100
 	 */
     const setMouseTracking = function setMouseTracking() {
+        elem.addEventListener('mousedown', function(e) {
+			callback(e);
+			document.addEventListener('mousemove', callback);
+		});
 
+		document.addEventListener('mouseup', function(e) {
+			document.removeEventListener('mousemove', callback);
+		});
     };
 
 
@@ -78,7 +85,7 @@ const ColorPickerTool = (function ColorPickerTool() {
 
 
     const canvasSample = function canvasSample() {
-        
+
     }
 
     const init = function init() {
