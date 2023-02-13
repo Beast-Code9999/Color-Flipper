@@ -33,6 +33,15 @@ const UIColorPicker = (function UIColorPIcker() {
 	 * @param value 		0-100
 	 * @param lightness		0-100
 	 */
+
+    const Color = (function Color() {
+
+
+
+        return {
+            
+        }
+    })();
     
     function getElemById(id) {
         return document.getElementById(id);
@@ -122,7 +131,6 @@ const UIColorPicker = (function UIColorPIcker() {
 
 
 
-
 const inputSliderManager = (function inputSliderManager() {
 	/*========== Make an element resizable relative to it's parent ==========*/
 
@@ -150,7 +158,6 @@ const ColorPickerTool = (function ColorPickerTool() {
     function getElemById(id) {
 		return document.getElementById(id);
 	}
-
 
     const canvasSample = function canvasSample() {
 
