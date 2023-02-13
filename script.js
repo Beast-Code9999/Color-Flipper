@@ -48,28 +48,47 @@ const UIColorPicker = (function UIColorPIcker() {
             document.removeEventListener('mousemove', callback);
         });
     };
+
+    const isValidRGBValue = function isValidRGBValue(value) {
+		return (typeof(value) === 'number' && isNaN(value) === false &&
+			value >= 0 && value <= 255);
+	};
+
+    /*************************************************************************/
+	//					Updates UI element Hue || slider
+	/*************************************************************************/
     
     const HueSlider = (function HueSlider() {
-        
         const _updateHueSliderPosition = function updateHueSlider( left ) {
             const hueSlider = getElemById('slider');
             hueSlider.style.left = Math.max( left - 9, -2 ) + 'px';
         };
+
+        const _updateHueSliderColor = function updateHueSliderColro( color ) {
+            const hueSlider = getElemById('slider');
+            hueSlider.style.backgroundColor = color;
+        };
         
         const _updateHueSlider = function updateHueSlider( e ) {
             const hueArea = getElemById('hue');
-    
-            console.log("THIS IS PAGE X: ", e.pageX);
-            console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
-    
+
             let x = e.pageX - hueArea.offsetLeft;
             let width = hueArea.clientWidth;
-    
+
+            console.log("THIS IS PAGE X: ", e.pageX);
+            console.log("THIS IS X: ", x);
+            console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
+            console.log( x );
+            
             if( x > width ) x = width;
             if( x < 0 ) x = 0;
     
+            let percent = x / width;
+            let hue = 360 - ( 360 * percent );
+
+
             _updateHueSliderPosition( x );
-            console.log( x );
+            _updateHueSliderColor(  );
         };
 
         const updateHueArea = function updateHueArea() {
@@ -95,7 +114,6 @@ const UIColorPicker = (function UIColorPIcker() {
         HueSlider.updateHueArea()
 
     };
-
 
     return {
         init: init,
