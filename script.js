@@ -44,6 +44,9 @@ const UIColorPicker = (function UIColorPIcker() {
 		});
     };
 
+    const updateHueSlider = function updateHueSlider( left ) {
+        
+    }
 
     const init = function init() {
 

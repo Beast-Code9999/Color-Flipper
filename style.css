@@ -44,7 +44,8 @@ body {
   background-color: orangered;
   border: 2px solid white;
   position: absolute;
-  top: -.5rem; }
+  top: -.5rem;
+  left: 0rem; }
 
 .header {
   width: 100%;
