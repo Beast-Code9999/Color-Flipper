@@ -33,49 +33,66 @@ const UIColorPicker = (function UIColorPIcker() {
 	 * @param value 		0-100
 	 * @param lightness		0-100
 	 */
-
+    
     function getElemById(id) {
-		return document.getElementById(id);
+        return document.getElementById(id);
 	}
 
     const _setMouseTracking = function setMouseTracking(elem, callback) {
         elem.addEventListener('mousedown', function(e) {
-			callback(e);
-			document.addEventListener('mousemove', callback);
-		});
+            callback(e);
+            document.addEventListener('mousemove', callback);
+        });
 
-		document.addEventListener('mouseup', function(e) {
-			document.removeEventListener('mousemove', callback);
-		});
+        document.addEventListener('mouseup', function(e) {
+            document.removeEventListener('mousemove', callback);
+        });
     };
+    
+    const HueSlider = (function HueSlider() {
+        
+        const _updateHueSliderPosition = function updateHueSlider( left ) {
+            const hueSlider = getElemById('slider');
+            hueSlider.style.left = Math.max( left - 9, -2 ) + 'px';
+        };
+        
+        const _updateHueSlider = function updateHueSlider( e ) {
+            const hueArea = getElemById('hue');
+    
+            console.log("THIS IS PAGE X: ", e.pageX);
+            console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
+    
+            let x = e.pageX - hueArea.offsetLeft;
+            let width = hueArea.clientWidth;
+    
+            if( x > width ) x = width;
+            if( x < 0 ) x = 0;
+    
+            _updateHueSliderPosition( x );
+            console.log( x );
+        };
 
-    const _updateHueSliderPosition = function updateHueSlider( left ) {
-        const hueSlider = getElemById('slider');
-        hueSlider.style.left = Math.max( left - 9, -2 ) + 'px'
-    };
+        const updateHueArea = function updateHueArea() {
+            const hueArea = getElemById('hue');
+            _setMouseTracking( hueArea, _updateHueSlider );
+        };
 
-    const _updateHueSlider = function updateHueSlider( e ) {
-        const hueArea = getElemById('hue');
+        return {
+            updateHueArea,
+        }
+    })();
 
-        console.log("THIS IS PAGE X: ", e.pageX)
-        let x = e.pageX - hueArea.offsetLeft;
-        let width = hueArea.clientWidth;
 
-        if( x > width ) x = width;
-        if( x < 0 ) x = 0
 
-        _updateHueSliderPosition( x );
-        console.log( x )
-    };
 
-    const _updateHueArea = function updateHueArea() {
-        const hueArea = getElemById('hue');
-        _setMouseTracking( hueArea, _updateHueSlider )
-    };
+
+    /*************************************************************************/
+	//						Update background colors
+	/*************************************************************************/
 
 
     const init = function init() {
-        _updateHueArea()
+        HueSlider.updateHueArea()
 
     };
 
