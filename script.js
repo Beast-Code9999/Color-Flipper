@@ -51,29 +51,31 @@ const UIColorPicker = (function UIColorPIcker() {
 
     const _updateHueSliderPosition = function updateHueSlider( left ) {
         const hueSlider = getElemById('slider');
-        const hueArea = getElemById('hue');
-
-        hueSlider.style.left = left + 'px'
-
-        _setMouseTracking( hueArea, _updateHueSlider )
-    }
+        hueSlider.style.left = Math.max( left - 9, -2 ) + 'px'
+    };
 
     const _updateHueSlider = function updateHueSlider( e ) {
-        console.log(e)
         const hueArea = getElemById('hue');
 
+        console.log("THIS IS PAGE X: ", e.pageX)
         let x = e.pageX - hueArea.offsetLeft;
         let width = hueArea.clientWidth;
 
         if( x > width ) x = width;
         if( x < 0 ) x = 0
 
+        _updateHueSliderPosition( x );
         console.log( x )
-    }
+    };
+
+    const _updateHueArea = function updateHueArea() {
+        const hueArea = getElemById('hue');
+        _setMouseTracking( hueArea, _updateHueSlider )
+    };
 
 
     const init = function init() {
-        _updateHueSliderPosition()
+        _updateHueArea()
 
     };
 
