@@ -38,7 +38,7 @@ const UIColorPicker = (function UIColorPIcker() {
 		return document.getElementById(id);
 	}
 
-    const setMouseTracking = function setMouseTracking() {
+    const _setMouseTracking = function setMouseTracking(elem, callback) {
         elem.addEventListener('mousedown', function(e) {
 			callback(e);
 			document.addEventListener('mousemove', callback);
@@ -49,11 +49,31 @@ const UIColorPicker = (function UIColorPIcker() {
 		});
     };
 
-    const updateHueSlider = function updateHueSlider( left ) {
+    const _updateHueSliderPosition = function updateHueSlider( left ) {
+        const hueSlider = getElemById('slider');
+        const hueArea = getElemById('hue');
 
+        hueSlider.style.left = left + 'px'
+
+        _setMouseTracking( hueArea, _updateHueSlider )
     }
 
+    const _updateHueSlider = function updateHueSlider( e ) {
+        console.log(e)
+        const hueArea = getElemById('hue');
+
+        let x = e.pageX - hueArea.offsetLeft;
+        let width = hueArea.clientWidth;
+
+        if( x > width ) x = width;
+        if( x < 0 ) x = 0
+
+        console.log( x )
+    }
+
+
     const init = function init() {
+        _updateHueSliderPosition()
 
     };
 
