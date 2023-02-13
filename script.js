@@ -33,6 +33,11 @@ const UIColorPicker = (function UIColorPIcker() {
 	 * @param value 		0-100
 	 * @param lightness		0-100
 	 */
+
+    function getElemById(id) {
+		return document.getElementById(id);
+	}
+
     const setMouseTracking = function setMouseTracking() {
         elem.addEventListener('mousedown', function(e) {
 			callback(e);
@@ -45,7 +50,7 @@ const UIColorPicker = (function UIColorPIcker() {
     };
 
     const updateHueSlider = function updateHueSlider( left ) {
-        
+
     }
 
     const init = function init() {
@@ -85,6 +90,9 @@ window.addEventListener('load', function() {
 
 
 const ColorPickerTool = (function ColorPickerTool() {
+    function getElemById(id) {
+		return document.getElementById(id);
+	}
 
 
     const canvasSample = function canvasSample() {
