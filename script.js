@@ -34,15 +34,6 @@ const UIColorPicker = (function UIColorPIcker() {
 	 * @param lightness		0-100
 	 */
 
-    const Color = (function Color() {
-
-
-
-        return {
-            
-        }
-    })();
-    
     function getElemById(id) {
         return document.getElementById(id);
 	}
@@ -62,6 +53,17 @@ const UIColorPicker = (function UIColorPIcker() {
 		return (typeof(value) === 'number' && isNaN(value) === false &&
 			value >= 0 && value <= 255);
 	};
+
+
+    const Color = (function Color() {
+
+
+
+        return {
+            
+        }
+    })();
+    
 
     /*************************************************************************/
 	//					Updates UI element Hue || slider
@@ -84,20 +86,25 @@ const UIColorPicker = (function UIColorPIcker() {
             let x = e.pageX - hueArea.offsetLeft;
             let width = hueArea.clientWidth;
 
-            console.log("THIS IS PAGE X: ", e.pageX);
-            console.log("THIS IS X: ", x);
-            console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
-            console.log( x );
+            // console.log("THIS IS PAGE X: ", e.pageX);
+            // console.log("THIS IS X: ", x);
+            // console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
+            // console.log( x );
+            console.log(e.target.value)
             
             if( x > width ) x = width;
             if( x < 0 ) x = 0;
     
-            let percent = x / width;
-            let hue = 360 - ( 360 * percent );
+            // let percent = x / width;
+            // let hue = 360 - ( 360 * percent );
+            
+            var hue = ((359 * x) / width) | 0;
+
+            // let color = 
 
 
             _updateHueSliderPosition( x );
-            _updateHueSliderColor(  );
+            _updateHueSliderColor();
         };
 
         const updateHueArea = function updateHueArea() {
