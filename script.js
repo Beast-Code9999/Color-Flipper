@@ -56,11 +56,20 @@ const UIColorPicker = (function UIColorPIcker() {
 
 
     const Color = (function Color() {
-
-
+        let r = 0;
+        let g = 0;
+        let b = 0;
+        let hue = 0;
+        let saturation = 0;
+        let lightness = 0;
 
         return {
-            
+            r,
+            g,
+            b,
+            hue,
+            saturation,
+            lightness,
         }
     })();
     
@@ -87,9 +96,8 @@ const UIColorPicker = (function UIColorPIcker() {
             let width = hueArea.clientWidth;
 
             // console.log("THIS IS PAGE X: ", e.pageX);
-            // console.log("THIS IS X: ", x);
+            console.log("THIS IS X: ", x);
             // console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
-            // console.log( x );
             
             if( x > width ) x = width; // so the picker doesn't go beyond the hueArea
             if( x < 0 ) x = 0;
