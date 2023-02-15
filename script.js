@@ -142,8 +142,8 @@ const UIColorPicker = (function UIColorPIcker() {
     const Picker = (function Picker() {
         const _updatePickerPosition = function _updatePickerPosition( left, top ) {
             const picker = getElemById('picker');
-            picker.style.left = left = 'px';
-            picker.style.top = top = 'px';
+            picker.style.left = left + 'px';
+            picker.style.top = top + 'px';
         }
 
         const _updatePickerColor = function _updatePickerColor( color ) {
@@ -160,9 +160,9 @@ const UIColorPicker = (function UIColorPIcker() {
             const height = pickingArea.clientHeight;
             
             if( x > width ) x = width;
-            if( x > 0 ) x = 0;
+            if( x < 0 ) x = 0;
             if( y > height ) y = height;
-            if( y > 0 ) y = 0;
+            if( y < 0 ) y = 0;
 
             _updatePickerPosition( x, y )
 

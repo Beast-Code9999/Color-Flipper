@@ -26,8 +26,7 @@ body {
   border: 2px solid white;
   position: absolute;
   right: -.8rem;
-  top: -.8rem;
-  display: block; }
+  top: -.8rem; }
 
 .hue {
   width: 90%;
