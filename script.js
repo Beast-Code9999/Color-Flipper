@@ -35,7 +35,7 @@ const UIColorPicker = (function UIColorPIcker() {
         return document.getElementById(id);
 	}
 
-    const _setMouseTracking = function setMouseTracking(elem, callback) { // tracks mouse movement
+    const _setMouseTracking = function _setMouseTracking(elem, callback) { // tracks mouse movement
         elem.addEventListener('mousedown', function(e) {
             callback(e);
             document.addEventListener('mousemove', callback);
@@ -71,32 +71,27 @@ const UIColorPicker = (function UIColorPIcker() {
     })();
 
     /*************************************************************************/
-	//					Updates UI element picking-area background color
-	/*************************************************************************/
-
-
-    /*************************************************************************/
 	//					Updates UI element Hue || slider
 	/*************************************************************************/
     const HueSlider = (function HueSlider() {
-        const _updateHueSliderPosition = function updateHueSlider( left ) {
+        const _updateHueSliderPosition = function _updateHueSlider( left ) {
             const hueSlider = getElemById('slider');
             hueSlider.style.left = Math.max( left - 9, -2 ) + 'px';
         };
 
-        const _updateHueSliderColor = function updateHueSliderColro( color ) {
+        const _updateHueSliderColor = function _updateHueSliderColro( color ) {
             const hueSlider = getElemById('slider');
             hueSlider.style.backgroundColor = color;
         };
         
-        const _updateHueSlider = function updateHueSlider( e ) {
+        const _updateHueSlider = function _updateHueSlider( e ) {
             const hueArea = getElemById('hue');
 
             let x = e.pageX - hueArea.offsetLeft;
             let width = hueArea.clientWidth;
 
             // console.log("THIS IS PAGE X: ", e.pageX);
-            console.log("THIS IS X: ", x);
+            // console.log("THIS IS X: ", x);
             // console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
             
             if( x > width ) x = width; // so the picker doesn't go beyond the hueArea
@@ -104,7 +99,7 @@ const UIColorPicker = (function UIColorPIcker() {
     
             // let percent = x / width;
 
-            var hue = ((359 * (x - 9)) / width) | 0; 
+            var hue = ((359 * (x)) / width) | 0; 
             // hue 0 = RED
             // hue 120 = GREEN 
             // hue 240 = BLUE
@@ -145,6 +140,19 @@ const UIColorPicker = (function UIColorPIcker() {
         };
     })();
 
+    /*************************************************************************/
+	//						       update picker
+	/*************************************************************************/
+    const Picker = (function Picker() {
+        const _updatePickerPosition = function _updatePickerPosition() {
+
+        }
+
+        return {
+
+        }
+    })();
+
     const init = function init() {
         HueSlider.updateHueArea();
         PickingArea.updatePickingArea();
@@ -154,13 +162,6 @@ const UIColorPicker = (function UIColorPIcker() {
         init: init,
         Color: Color,
     };
-
-    /*************************************************************************/
-	//						       update picker
-	/*************************************************************************/
-    const Picker = (function Picker() {
-
-    })();
 })();
 
 
