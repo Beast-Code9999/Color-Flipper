@@ -131,9 +131,15 @@ const UIColorPicker = (function UIColorPIcker() {
 	//						Update background colors
 	/*************************************************************************/
     const PickingArea = (function PickingArea() {
+        const pickingArea = getElemById('picking-area');
+        const hueArea = getElemById('hue');
+
+        const changePickingAreaBackground = function changePickingAreaBackground() {
+            pickingArea.style.backgroundColor = `hsl(${Color.hue}, 100%, 50%)`;
+        }
 
         const updatePickingArea = function updatePickingArea() {
-
+            _setMouseTracking( hueArea, changePickingAreaBackground )
         };
 
         return {
