@@ -174,9 +174,11 @@ const UIColorPicker = (function UIColorPIcker() {
             if( y > height ) y = height;
             if( y < 0 ) y = 0;
 
-            let value = 100 - (y * 100 / width) | 0;
             let saturation = x * 100 / height | 0;
+            let lightness = 100 - (y * 100 / width) | 0;
 
+            Color.saturation = saturation;
+            Color.lightness = lightness;
             _updatePickerPosition( x, y );
             _updatePickerColor()
             // console.log(pickingArea)
