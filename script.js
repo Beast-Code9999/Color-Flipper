@@ -31,7 +31,6 @@ const UIColorPicker = (function UIColorPIcker() {
 	 * @param saturation	0-100
 	 * @param lightness		0-100
 	 */
-
     function getElemById(id) {
         return document.getElementById(id);
 	}
@@ -79,7 +78,6 @@ const UIColorPicker = (function UIColorPIcker() {
     /*************************************************************************/
 	//					Updates UI element Hue || slider
 	/*************************************************************************/
-    
     const HueSlider = (function HueSlider() {
         const _updateHueSliderPosition = function updateHueSlider( left ) {
             const hueSlider = getElemById('slider');
@@ -128,7 +126,7 @@ const UIColorPicker = (function UIColorPIcker() {
     })();
 
     /*************************************************************************/
-	//						Update background colors
+	//						Update picking-area background color
 	/*************************************************************************/
     const PickingArea = (function PickingArea() {
         const pickingArea = getElemById('picking-area');
@@ -154,7 +152,15 @@ const UIColorPicker = (function UIColorPIcker() {
 
     return {
         init: init,
+        Color: Color,
     };
+
+    /*************************************************************************/
+	//						       update picker
+	/*************************************************************************/
+    const Picker = (function Picker() {
+
+    })();
 })();
 
 
