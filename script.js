@@ -90,21 +90,20 @@ const UIColorPicker = (function UIColorPIcker() {
             // console.log("THIS IS X: ", x);
             // console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
             // console.log( x );
-            console.log(e.target.value)
             
-            if( x > width ) x = width;
+            if( x > width ) x = width; // so the picker doesn't go beyond the hueArea
             if( x < 0 ) x = 0;
     
             // let percent = x / width;
-            // let hue = 360 - ( 360 * percent );
-            
-            var hue = ((359 * x) / width) | 0;
 
-            // let color = 
-
+            var hue = ((359 * (x - 9)) / width) | 0; 
+            // hue 0 = RED
+            // hue 120 = GREEN 
+            // hue 240 = BLUE
+            // hue 359 = RED
 
             _updateHueSliderPosition( x );
-            _updateHueSliderColor();
+            _updateHueSliderColor(`hsl(${hue}, 100%, 50%)`);
         };
 
         const updateHueArea = function updateHueArea() {
