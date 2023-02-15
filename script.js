@@ -18,6 +18,15 @@
 //  colorCtx.fillRect(0, 0, colorCtx .canvas.width, 
 //  colorCtx.canvas.height); 
 
+// colorCanvas.addEventListener('click',function(event){
+//     let x = event.clientX;  // Get X coordinate
+//     let y = event.clientY;  // Get Y coordinate
+//     pixel = colorCtx.getImageData(x,y,1,1)['data'];   // Read pixel Color
+//     rgb = `rgb(${pixel[0]},${pixel[1]},${pixel[2]})`;
+//     document.body.style.background = rgb;    // Set this color to body of the document
+//  });
+// const ctx = document.getElementById('color-slider').getContext('2d');
+
 const UIColorPicker = (function UIColorPIcker() {
     /** 
 	 * RGBA Color class
@@ -88,7 +97,7 @@ const UIColorPicker = (function UIColorPIcker() {
 
             // console.log("THIS IS PAGE X: ", e.pageX);
             // console.log("THIS IS X: ", x);
-            console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
+            // console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
             
             if( x > width ) x = width; // so the picker doesn't go beyond the hueArea
             if( x < 0 ) x = 0;
@@ -147,7 +156,8 @@ const UIColorPicker = (function UIColorPIcker() {
         }
 
         const _updatePickerColor = function _updatePickerColor( color ) {
-
+            const picker = getElemById('picker');
+            picker.style.backgroundColor = color;
         }
 
         const _updatePicker = function _updatePicker( e ) {
@@ -164,12 +174,15 @@ const UIColorPicker = (function UIColorPIcker() {
             if( y > height ) y = height;
             if( y < 0 ) y = 0;
 
-            _updatePickerPosition( x, y )
+            let value = 100 - (y * 100 / width) | 0;
+            let saturation = x * 100 / height | 0;
 
+            _updatePickerPosition( x, y )
+            _updatePickerColor(`hsl(${Color.hue}, ${saturation}, ${value})`)
             // console.log(pickingArea)
             // console.log(pickingArea.offsetLeft)
             // console.log(picking.offsetLeft)
-            console.log(x, y)
+            // console.log(x, y)
         }
 
         const updatePickerArea = function updatePickerArea() {
@@ -238,17 +251,6 @@ const ColorPickerTool = (function ColorPickerTool() {
         init: init
     };
 })();
-
-
-// colorCanvas.addEventListener('click',function(event){
-//     let x = event.clientX;  // Get X coordinate
-//     let y = event.clientY;  // Get Y coordinate
-//     pixel = colorCtx.getImageData(x,y,1,1)['data'];   // Read pixel Color
-//     rgb = `rgb(${pixel[0]},${pixel[1]},${pixel[2]})`;
-//     document.body.style.background = rgb;    // Set this color to body of the document
-//  });
-
-// const ctx = document.getElementById('color-slider').getContext('2d');
 
 // footer script
 function addDynamicFooterDate() {
