@@ -23,14 +23,12 @@
 
 
 const UIColorPicker = (function UIColorPIcker() {
-
     /** 
 	 * RGBA Color class
 	 *
 	 * HSV/HSB and HSL (hue, saturation, value / brightness, lightness)
 	 * @param hue			0-360
 	 * @param saturation	0-100
-	 * @param value 		0-100
 	 * @param lightness		0-100
 	 */
 
@@ -38,7 +36,7 @@ const UIColorPicker = (function UIColorPIcker() {
         return document.getElementById(id);
 	}
 
-    const _setMouseTracking = function setMouseTracking(elem, callback) {
+    const _setMouseTracking = function setMouseTracking(elem, callback) { // tracks mouse movement
         elem.addEventListener('mousedown', function(e) {
             callback(e);
             document.addEventListener('mousemove', callback);
@@ -49,7 +47,7 @@ const UIColorPicker = (function UIColorPIcker() {
         });
     };
 
-    const isValidRGBValue = function isValidRGBValue(value) {
+    const isValidRGBValue = function isValidRGBValue(value) { // checks if RBG value is valid
 		return (typeof(value) === 'number' && isNaN(value) === false &&
 			value >= 0 && value <= 255);
 	};
@@ -72,7 +70,11 @@ const UIColorPicker = (function UIColorPIcker() {
             lightness,
         }
     })();
-    
+
+    /*************************************************************************/
+	//					Updates UI element picking-area background color
+	/*************************************************************************/
+
 
     /*************************************************************************/
 	//					Updates UI element Hue || slider
@@ -112,6 +114,7 @@ const UIColorPicker = (function UIColorPIcker() {
 
             _updateHueSliderPosition( x );
             _updateHueSliderColor(`hsl(${hue}, 100%, 50%)`);
+            Color.hue = hue;
         };
 
         const updateHueArea = function updateHueArea() {
@@ -121,21 +124,26 @@ const UIColorPicker = (function UIColorPIcker() {
 
         return {
             updateHueArea,
-        }
+        };
     })();
-
-
-
-
 
     /*************************************************************************/
 	//						Update background colors
 	/*************************************************************************/
+    const PickingArea = (function PickingArea() {
 
+        const updatePickingArea = function updatePickingArea() {
+
+        };
+
+        return {
+            updatePickingArea,
+        };
+    })();
 
     const init = function init() {
-        HueSlider.updateHueArea()
-
+        HueSlider.updateHueArea();
+        PickingArea.updatePickingArea();
     };
 
     return {
