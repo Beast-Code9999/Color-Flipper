@@ -81,7 +81,7 @@ const UIColorPicker = (function UIColorPIcker() {
 
         const _updateHueSliderColor = function _updateHueSliderColro( color ) {
             const hueSlider = getElemById('slider');
-            hueSlider.style.backgroundColor = color;
+            hueSlider.style.backgroundColor = `hsl(${color}, 100%, 50%)`;
         };
         
         const _updateHueSlider = function _updateHueSlider( e ) {
@@ -106,7 +106,7 @@ const UIColorPicker = (function UIColorPIcker() {
             // hue 359 = RED
 
             _updateHueSliderPosition( x );
-            _updateHueSliderColor(`hsl(${hue}, 100%, 50%)`);
+            _updateHueSliderColor( hue );
             Color.hue = hue;
         };
 
@@ -144,9 +144,16 @@ const UIColorPicker = (function UIColorPIcker() {
 	//						       update picker
 	/*************************************************************************/
     const Picker = (function Picker() {
-        const _updatePickerPosition = function _updatePickerPosition() {
-
+        const _updatePickerPosition = function _updatePickerPosition( left, top ) {
+            const picker = getElemById('picker');
+            picker.style.left = left = 'px';
+            picker.style.top = top = 'px';
         }
+
+        const _updatePickerColor = function _updatePickerColor() {
+            
+        }
+
 
         return {
 
