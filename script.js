@@ -88,7 +88,7 @@ const UIColorPicker = (function UIColorPIcker() {
 
             // console.log("THIS IS PAGE X: ", e.pageX);
             // console.log("THIS IS X: ", x);
-            // console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
+            console.log("THIS IS HUE AREA OFFSET LEFT: ", hueArea.offsetLeft);
             
             if( x > width ) x = width; // so the picker doesn't go beyond the hueArea
             if( x < 0 ) x = 0;
@@ -151,11 +151,21 @@ const UIColorPicker = (function UIColorPIcker() {
         }
 
         const _updatePicker = function _updatePicker( e ) {
+            const pickingArea = getElemById('spectrum__canvas');
 
+            let x = e.pageX - pickingArea.offsetLeft;
+            let y = e.pageY - pickingArea.offsetTop;
+
+            // console.log(pickingArea)
+            // console.log(pickingArea.offsetLeft)
+            // console.log(picking.offsetLeft)
+            console.log(x, y)
         }
 
         const updatePickerArea = function updatePickerArea() {
+            const pickingArea = getElemById('spectrum__canvas');
 
+            _setMouseTracking( pickingArea, _updatePicker )
         }
 
         return {
