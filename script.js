@@ -34,6 +34,7 @@ const UIColorPicker = (function UIColorPIcker() {
 	 * HSV/HSB and HSL (hue, saturation, value / brightness, lightness)
 	 * @param hue			0-360
 	 * @param saturation	0-100
+     * @param value 		0-100
 	 * @param lightness		0-100
 	 */
     function getElemById(id) {
@@ -63,6 +64,7 @@ const UIColorPicker = (function UIColorPIcker() {
         let b = 0;
         let hue = 0;
         let saturation = 0;
+        let value = 0;
         let lightness = 0;
 
         return {
@@ -71,6 +73,7 @@ const UIColorPicker = (function UIColorPIcker() {
             b,
             hue,
             saturation,
+            value,
             lightness,
         }
     })();
