@@ -153,8 +153,18 @@ const UIColorPicker = (function UIColorPIcker() {
         const _updatePicker = function _updatePicker( e ) {
             const pickingArea = getElemById('spectrum__canvas');
 
-            let x = e.pageX - pickingArea.offsetLeft;
-            let y = e.pageY - pickingArea.offsetTop;
+            let x = e.pageX - pickingArea.offsetLeft; // x coordinate relative to pickingArea
+            let y = e.pageY - pickingArea.offsetTop; // y coordinate relative to pickingArea
+
+            const width = pickingArea.clientWidth;
+            const height = pickingArea.clientHeight;
+            
+            if( x > width ) x = width;
+            if( x > 0 ) x = 0;
+            if( y > height ) y = height;
+            if( y > 0 ) y = 0;
+
+            _updatePickerPosition( x, y )
 
             // console.log(pickingArea)
             // console.log(pickingArea.offsetLeft)
