@@ -142,8 +142,8 @@ const UIColorPicker = (function UIColorPIcker() {
     const Picker = (function Picker() {
         const _updatePickerPosition = function _updatePickerPosition( left, top ) {
             const picker = getElemById('picker');
-            picker.style.left = left + 'px';
-            picker.style.top = top + 'px';
+            picker.style.left = (left - 10) + 'px';// -10 allows half of the picker (1 rem) to...
+            picker.style.top = (top - 10) + 'px'; // exit the top && left border
         }
 
         const _updatePickerColor = function _updatePickerColor( color ) {
