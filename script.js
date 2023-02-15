@@ -1,5 +1,4 @@
 'use strict';
-
 // const colorCanvas = document.getElementById('color-canvas');
 // const colorCtx = colorCanvas.getContext('2d'); // creates a 2d context for the canvas
 
@@ -11,7 +10,6 @@
 // colorCtx.fillStyle = gradientH;
 // colorCtx.fillRect(0, 0, colorCtx.canvas.width, colorCtx.canvas.height);
 
-
 // // Create a Vertical Gradient(white to black)
 //  let gradientV = colorCtx.createLinearGradient(0, 0, 0, 300);
 //  gradientV.addColorStop(0, 'rgba(0,0,0,0)');
@@ -19,8 +17,6 @@
 //  colorCtx.fillStyle = gradientV;
 //  colorCtx.fillRect(0, 0, colorCtx .canvas.width, 
 //  colorCtx.canvas.height); 
-
-
 
 const UIColorPicker = (function UIColorPIcker() {
     /** 
@@ -150,19 +146,27 @@ const UIColorPicker = (function UIColorPIcker() {
             picker.style.top = top = 'px';
         }
 
-        const _updatePickerColor = function _updatePickerColor() {
-            
+        const _updatePickerColor = function _updatePickerColor( color ) {
+
         }
 
+        const _updatePicker = function _updatePicker( e ) {
+
+        }
+
+        const updatePickerArea = function updatePickerArea() {
+
+        }
 
         return {
-
+            updatePickerArea,
         }
     })();
 
     const init = function init() {
         HueSlider.updateHueArea();
         PickingArea.updatePickingArea();
+        Picker.updatePickerArea();
     };
 
     return {
