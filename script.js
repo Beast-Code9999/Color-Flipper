@@ -79,6 +79,13 @@ const UIColorPicker = (function UIColorPIcker() {
     })();
 
     /*************************************************************************/
+	//					        conversion methods
+	/*************************************************************************/
+    const Convert = (function Convert() {
+        
+    })();
+
+    /*************************************************************************/
 	//					Updates UI element Hue || slider
 	/*************************************************************************/
     const HueSlider = (function HueSlider() {
@@ -169,7 +176,8 @@ const UIColorPicker = (function UIColorPIcker() {
             let x = e.pageX - pickingArea.offsetLeft ; // x coordinate relative to pickingArea
             let y = e.pageY - pickingArea.offsetTop; // y coordinate relative to pickingArea
 
-            let z = pickingArea.offsetLeft + pickingArea.clientWidth - e.pageX
+            let inverseX = pickingArea.offsetLeft + pickingArea.clientWidth - e.pageX; // inverse of x
+
             const width = pickingArea.clientWidth;
             const height = pickingArea.clientHeight;
             
@@ -181,13 +189,10 @@ const UIColorPicker = (function UIColorPIcker() {
             if( y < 0 ) y = 0;
 
             
-            // let saturation = (z / width) * 100 | 0 ;
-            // let lightness =  (y / height) * 100 | 0;
+            let saturation = (x / width) * 100 | 0 ;
+            let lightness =  (y / height) * 100 | 0;
 
-            var lightness = 100 - (y * 100 / height) | 0;
-            var saturation = x * 100 / width | 0;
-
-            console.log( saturation, lightness )
+            console.log(saturation, lightness)
 
             Color.saturation = saturation;
             Color.lightness = lightness;
