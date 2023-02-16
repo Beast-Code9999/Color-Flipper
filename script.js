@@ -82,7 +82,13 @@ const UIColorPicker = (function UIColorPIcker() {
 	//					        conversion methods
 	/*************************************************************************/
     const Convert = (function Convert() {
-        
+        const HSVtoRGB = function HSVtoRGB() {
+
+        }
+
+        return {
+            HSVtoRGB,
+        }
     })();
 
     /*************************************************************************/
@@ -183,21 +189,24 @@ const UIColorPicker = (function UIColorPIcker() {
             
             if( x > width ) x = width;
             if( x < 0 ) x = 0;
-            if( z > width ) z = width;
-            if( z < 0 ) z = 0;
+            if( inverseX > width ) inverseX = width;
+            if( inverseX < 0 ) inverseX = 0;
             if( y > height ) y = height;
             if( y < 0 ) y = 0;
 
             
-            let saturation = (x / width) * 100 | 0 ;
-            let lightness =  (y / height) * 100 | 0;
+            // let saturation = (x / width) * 100 | 0 ;
+            // let lightness =  (y / height) * 100 | 0;
 
-            console.log(saturation, lightness)
+            var saturation = x * 100 / width | 0;
+            var value = 100 - (y * 100 / height) | 0;
+
+            console.log(saturation, value)
 
             Color.saturation = saturation;
-            Color.lightness = lightness;
+            Color.value = value;
             _updatePickerPosition( x, y );
-            _updatePickerColor( Color.hue, saturation, lightness)
+            _updatePickerColor( Color.hue, saturation, value)
             // console.log(pickingArea)
             // console.log(pickingArea.offsetLeft)
             // console.log(picking.offsetLeft)
