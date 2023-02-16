@@ -95,17 +95,34 @@ const UIColorPicker = (function UIColorPIcker() {
         const setHSV = function setHSV( hue, saturation, value ) {
             Color.hue = hue;
             Color.saturation = saturation;
-            Color.lightness = lightness;
+            Color.value = value;
+            HSVtoRGB()
         };  
 
-        const HSVtoRGB = function HSVtoRGB() {
-            
+        function HSVtoRGB() {
+            var sat = Color.saturation / 100;
+            var value = Color.value / 100;
+            var C = sat * value;
+            var H = Color.hue / 60;
+            var X = C * (1 - Math.abs(H % 2 - 1));
+            var m = value - C;
+            var precision = 255;
+    
+            C = (C + m) * precision | 0;
+            X = (X + m) * precision | 0;
+            m = m * precision | 0;
+    
+            if (H >= 0 && H < 1) {	setRGB(C, X, m);	return; }
+            if (H >= 1 && H < 2) {	setRGB(X, C, m);	return; }
+            if (H >= 2 && H < 3) {	setRGB(m, C, X);	return; }
+            if (H >= 3 && H < 4) {	setRGB(m, X, C);	return; }
+            if (H >= 4 && H < 5) {	setRGB(X, m, C);	return; }
+            if (H >= 5 && H < 6) {	setRGB(C, m, X);	return; }
         };
 
         return {
             setRGB,
             setHSV,
-            HSVtoRGB,
         }
     })();
 
@@ -191,7 +208,7 @@ const UIColorPicker = (function UIColorPIcker() {
 
         const _updatePickerColor = function _updatePickerColor( hue, whiteness, blackness ) {
             const picker = getElemById('picker');
-            picker.style.backgroundColor = `hwb( ${hue} ${whiteness}% ${blackness}% )`;
+            picker.style.backgroundColor = `rgb( ${Color.r}, ${Color.g}, ${Color.b} )`;
         }
 
         const _updatePicker = function _updatePicker( e ) {
@@ -218,9 +235,10 @@ const UIColorPicker = (function UIColorPIcker() {
             console.log(saturation, value)
 
             SetConvert.setHSV( Color.hue, saturation, value );
+            // console.log( Color.r, Color.g, Color.b )
 
             _updatePickerPosition( x, y );
-            _updatePickerColor( Color.hue, saturation, value )
+            _updatePickerColor()
             // console.log(pickingArea)
             // console.log(pickingArea.offsetLeft)
             // console.log(picking.offsetLeft)
