@@ -200,15 +200,11 @@ const UIColorPicker = (function UIColorPIcker() {
             let x = e.pageX - pickingArea.offsetLeft ; // x coordinate relative to pickingArea
             let y = e.pageY - pickingArea.offsetTop; // y coordinate relative to pickingArea
 
-            let inverseX = pickingArea.offsetLeft + pickingArea.clientWidth - e.pageX; // inverse of x
-
             const width = pickingArea.clientWidth;
             const height = pickingArea.clientHeight;
             
             if( x > width ) x = width;
             if( x < 0 ) x = 0;
-            if( inverseX > width ) inverseX = width;
-            if( inverseX < 0 ) inverseX = 0;
             if( y > height ) y = height;
             if( y < 0 ) y = 0;
 
@@ -221,10 +217,10 @@ const UIColorPicker = (function UIColorPIcker() {
 
             console.log(saturation, value)
 
-            Color.saturation = saturation;
-            Color.value = value;
+            SetConvert.setHSV( Color.hue, saturation, value );
+
             _updatePickerPosition( x, y );
-            _updatePickerColor( Color.hue, saturation, value)
+            _updatePickerColor( Color.hue, saturation, value )
             // console.log(pickingArea)
             // console.log(pickingArea.offsetLeft)
             // console.log(picking.offsetLeft)
