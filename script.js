@@ -58,7 +58,7 @@ const UIColorPicker = (function UIColorPIcker() {
 	};
 
 
-    const Color = (function Color() {
+    const Color = (function Color() { // set standard colors
         let r = 0;
         let g = 0;
         let b = 0;
@@ -90,16 +90,21 @@ const UIColorPicker = (function UIColorPIcker() {
             Color.r = red | 0;
             Color.g = green | 0;
             Color.b = blue | 0;
-        }
+        };
 
-
+        const setHSV = function setHSV( hue, saturation, value ) {
+            Color.hue = hue;
+            Color.saturation = saturation;
+            Color.lightness = lightness;
+        };  
 
         const HSVtoRGB = function HSVtoRGB() {
-
-        }
+            
+        };
 
         return {
             setRGB,
+            setHSV,
             HSVtoRGB,
         }
     })();
