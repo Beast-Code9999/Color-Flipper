@@ -160,7 +160,7 @@ const UIColorPicker = (function UIColorPIcker() {
 
         const _updatePickerColor = function _updatePickerColor( hue, saturation, lightness ) {
             const picker = getElemById('picker');
-            picker.style.backgroundColor = `hsl( ${hue}, ${saturation}, ${lightness} )`;
+            picker.style.backgroundColor = 'hwb(350, 100%, 0%)';
         }
 
         const _updatePicker = function _updatePicker( e ) {
@@ -177,13 +177,15 @@ const UIColorPicker = (function UIColorPIcker() {
             if( y > height ) y = height;
             if( y < 0 ) y = 0;
 
-            let saturation = x * 100 / height | 0;
-            let lightness = 100 - (y * 100 / width) | 0;
+            let saturation = (x / width) * 100 | 0;
+            let lightness =  (y / height) * 100 | 0;
+
+            console.log( saturation, lightness )
 
             Color.saturation = saturation;
             Color.lightness = lightness;
             _updatePickerPosition( x, y );
-            _updatePickerColor()
+            _updatePickerColor( Color.hue, saturation, lightness)
             // console.log(pickingArea)
             // console.log(pickingArea.offsetLeft)
             // console.log(picking.offsetLeft)

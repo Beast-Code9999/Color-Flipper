@@ -45,6 +45,8 @@ body {
   position: absolute;
   top: -.5rem;
   left: 0rem; }
+  .slider:hover {
+    cursor: pointer; }
 
 .header {
   width: 100%;
