@@ -82,11 +82,16 @@ const UIColorPicker = (function UIColorPIcker() {
 	//					        conversion methods
 	/*************************************************************************/
     const Convert = (function Convert() {
+        const setRGB = function setRGB() {
+
+        }
+
         const HSVtoRGB = function HSVtoRGB() {
 
         }
 
         return {
+            setRGB,
             HSVtoRGB,
         }
     })();
