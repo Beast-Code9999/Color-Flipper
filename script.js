@@ -158,27 +158,34 @@ const UIColorPicker = (function UIColorPIcker() {
             picker.style.top = (top - 10) + 'px'; // exit the top && left border
         }
 
-        const _updatePickerColor = function _updatePickerColor( hue, saturation, lightness ) {
+        const _updatePickerColor = function _updatePickerColor( hue, whiteness, blackness ) {
             const picker = getElemById('picker');
-            picker.style.backgroundColor = 'hwb(350, 100%, 0%)';
+            picker.style.backgroundColor = `hwb( ${hue} ${whiteness}% ${blackness}% )`;
         }
 
         const _updatePicker = function _updatePicker( e ) {
             const pickingArea = getElemById('spectrum__canvas');
 
-            let x = e.pageX - pickingArea.offsetLeft; // x coordinate relative to pickingArea
+            let x = e.pageX - pickingArea.offsetLeft ; // x coordinate relative to pickingArea
             let y = e.pageY - pickingArea.offsetTop; // y coordinate relative to pickingArea
 
+            let z = pickingArea.offsetLeft + pickingArea.clientWidth - e.pageX
             const width = pickingArea.clientWidth;
             const height = pickingArea.clientHeight;
             
             if( x > width ) x = width;
             if( x < 0 ) x = 0;
+            if( z > width ) z = width;
+            if( z < 0 ) z = 0;
             if( y > height ) y = height;
             if( y < 0 ) y = 0;
 
-            let saturation = (x / width) * 100 | 0;
-            let lightness =  (y / height) * 100 | 0;
+            
+            // let saturation = (z / width) * 100 | 0 ;
+            // let lightness =  (y / height) * 100 | 0;
+
+            var lightness = 100 - (y * 100 / height) | 0;
+            var saturation = x * 100 / width | 0;
 
             console.log( saturation, lightness )
 
