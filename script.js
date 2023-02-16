@@ -301,8 +301,8 @@ const ColorPickerTool = (function ColorPickerTool() {
 		return document.getElementById(id);
 	}
 
-    const canvasSample = function canvasSample() {
-
+    const updateCanvas = function canvasSample() {
+        const canvasSample = getElemById('canvas-sample');
     }
 
     const init = function init() {
