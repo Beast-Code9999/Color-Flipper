@@ -63,8 +63,8 @@ const UIColorPicker = (function UIColorPIcker() {
         let g = 0;
         let b = 0;
         let hue = 0;
-        let saturation = 0;
-        let value = 0;
+        let saturation = 100;
+        let value = 100;
         let lightness = 0;
 
         return {
@@ -99,7 +99,7 @@ const UIColorPicker = (function UIColorPIcker() {
             HSVtoRGB()
         };  
 
-        function HSVtoRGB() {
+        function HSVtoRGB() { // complicated conversion of HSV color type to RGB
             var sat = Color.saturation / 100;
             var value = Color.value / 100;
             var C = sat * value;
@@ -153,8 +153,6 @@ const UIColorPicker = (function UIColorPIcker() {
             if( x > width ) x = width; // so the picker doesn't go beyond the hueArea
             if( x < 0 ) x = 0;
     
-            // let percent = x / width;
-
             var hue = ((359 * (x)) / width) | 0; 
             // hue 0 = RED
             // hue 120 = GREEN 
@@ -164,6 +162,13 @@ const UIColorPicker = (function UIColorPIcker() {
             _updateHueSliderPosition( x );
             _updateHueSliderColor( hue );
             Color.hue = hue;
+            SetConvert.setHSV( Color.hue, Color.saturation, Color.value );
+
+            function updatePickerBackground() {
+                const picker = getElemById('picker');
+                picker.style.backgroundColor = `rgb( ${Color.r}, ${Color.g}, ${Color.b} )`;
+            }
+            updatePickerBackground()
         };
 
         const updateHueArea = function updateHueArea() {
@@ -206,7 +211,7 @@ const UIColorPicker = (function UIColorPIcker() {
             picker.style.top = (top - 10) + 'px'; // exit the top && left border
         }
 
-        const _updatePickerColor = function _updatePickerColor( hue, whiteness, blackness ) {
+        const _updatePickerColor = function _updatePickerColor() {
             const picker = getElemById('picker');
             picker.style.backgroundColor = `rgb( ${Color.r}, ${Color.g}, ${Color.b} )`;
         }
@@ -225,20 +230,18 @@ const UIColorPicker = (function UIColorPIcker() {
             if( y > height ) y = height;
             if( y < 0 ) y = 0;
 
-            
             // let saturation = (x / width) * 100 | 0 ;
             // let lightness =  (y / height) * 100 | 0;
 
             var saturation = x * 100 / width | 0;
             var value = 100 - (y * 100 / height) | 0;
 
-            console.log(saturation, value)
-
             SetConvert.setHSV( Color.hue, saturation, value );
             // console.log( Color.r, Color.g, Color.b )
 
             _updatePickerPosition( x, y );
             _updatePickerColor()
+
             // console.log(pickingArea)
             // console.log(pickingArea.offsetLeft)
             // console.log(picking.offsetLeft)
@@ -247,7 +250,6 @@ const UIColorPicker = (function UIColorPIcker() {
 
         const updatePickerArea = function updatePickerArea() {
             const pickingArea = getElemById('spectrum__canvas');
-
             _setMouseTracking( pickingArea, _updatePicker )
         }
 
@@ -255,6 +257,7 @@ const UIColorPicker = (function UIColorPIcker() {
             updatePickerArea,
         }
     })();
+
 
     const init = function init() {
         HueSlider.updateHueArea();
