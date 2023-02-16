@@ -9,4 +9,8 @@
     right: -.8rem;
     top: -.8rem;
     // display: block;
+
+    &:hover {
+        cursor: pointer;
+    }
 }

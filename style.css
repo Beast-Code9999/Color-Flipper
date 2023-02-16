@@ -27,6 +27,8 @@ body {
   position: absolute;
   right: -.8rem;
   top: -.8rem; }
+  #picker:hover {
+    cursor: pointer; }
 
 .hue {
   width: 90%;
