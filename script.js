@@ -79,12 +79,20 @@ const UIColorPicker = (function UIColorPIcker() {
     })();
 
     /*************************************************************************/
-	//					        conversion methods
+	//					        set and conversion methods
 	/*************************************************************************/
-    const Convert = (function Convert() {
-        const setRGB = function setRGB() {
-
+    const SetConvert = (function SetConvert() {
+        const setRGB = function setRGB(red, green, blue) {
+            if (isValidRGBValue(red) === false ||
+                isValidRGBValue(green) === false ||
+                isValidRGBValue(blue) === false)
+                return;
+            Color.r = red | 0;
+            Color.g = green | 0;
+            Color.b = blue | 0;
         }
+
+
 
         const HSVtoRGB = function HSVtoRGB() {
 
