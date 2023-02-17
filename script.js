@@ -368,7 +368,34 @@ const ColorPickerTool = (function ColorPickerTool() {
 
             const hsl = function hsl() {
                 const output = getElemById('output__code--hsl');
+                var red		= UIColorPicker.Color.r / 255;
+                var green	= UIColorPicker.Color.g / 255;
+                var blue	= UIColorPicker.Color.b / 255;
+        
+                var cmax = Math.max(red, green, blue);
+                var cmin = Math.min(red, green, blue);
+                var delta = cmax - cmin;
+                var hue = 0;
+                var saturation = 0;
+                var lightness = (cmax + cmin) / 2;
+                var X = (1 - Math.abs(2 * lightness - 1));
+        
+                if (delta) {
+                    if (cmax === red ) { hue = ((green - blue) / delta); }
+                    if (cmax === green ) { hue = 2 + (blue - red) / delta; }
+                    if (cmax === blue ) { hue = 4 + (red - green) / delta; }
+                    if (cmax) saturation = delta / X;
+                }
+        
+                UIColorPicker.Color.hue = 60 * hue | 0;
+                if (UIColorPicker.Color.hue < 0) UIColorPicker.Color.hue += 360;
+                UIColorPicker.Color.saturation = (saturation * 100) | 0;
+                UIColorPicker.Color.lightness = (lightness * 100) | 0;
 
+                output.textContent = 
+                `${UIColorPicker.Color.hue}°, 
+                 ${UIColorPicker.Color.saturation}%, 
+                 ${UIColorPicker.Color.lightness}%`;
             };
 
             const updateAllOutput = function updateAllOutput() {
