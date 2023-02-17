@@ -325,6 +325,17 @@ const ColorPickerTool = (function ColorPickerTool() {
         /*************************************************************************/
         const updateOutput = (function updateOutput() {
             const hex = function hex() {
+                
+                function getHex() {
+                    var r = UIColorPicker.Color.r.toString(16);
+                    var g = UIColorPicker.Color.g.toString(16);
+                    var b = UIColorPicker.Color.b.toString(16);
+                    if (UIColorPicker.Color.r < 16) r = '0' + r;
+                    if (UIColorPicker.Color.g < 16) g = '0' + g;
+                    if (UIColorPicker.Color.b < 16) b = '0' + b;
+                    var value = '#' + r + g + b;
+                    return value.toUpperCase();
+                }
 
             };
 
