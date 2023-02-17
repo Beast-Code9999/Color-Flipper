@@ -348,8 +348,8 @@ const ColorPickerTool = (function ColorPickerTool() {
                 const output = getElemById('output__code--rgb');
                 output.textContent = 
                 `${UIColorPicker.Color.r}, 
-                    ${UIColorPicker.Color.g}, 
-                    ${UIColorPicker.Color.b}`;
+                 ${UIColorPicker.Color.g}, 
+                 ${UIColorPicker.Color.b}`;
             };
 
             const cmyk = function cmyk() {
@@ -360,13 +360,14 @@ const ColorPickerTool = (function ColorPickerTool() {
             
             const hsv = function hsv() {
                 const output = getElemById('output__code--hsv');
-
-
+                output.textContent = 
+                `${UIColorPicker.Color.hue}°, 
+                 ${UIColorPicker.Color.saturation}%, 
+                 ${UIColorPicker.Color.value}%`;
             };
 
             const hsl = function hsl() {
                 const output = getElemById('output__code--hsl');
-
 
             };
 
