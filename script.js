@@ -313,23 +313,28 @@ const ColorPickerTool = (function ColorPickerTool() {
     };
 
     const Tool = (function Tool() {
+        /*************************************************************************/
+        //						  update canvas background
+        /*************************************************************************/
         const updateCanvas = function canvasSample() {
             const hueSlider = getElemById('slider');
             const picker = getElemById('picker');
             
             function updateCanvasBackground() {
                 const canvasSample = getElemById('canvas-sample');
+                console.log( UIColorPicker.Color.r, UIColorPicker.Color.g, UIColorPicker.Color.b)
                 canvasSample.style.backgroundColor = 
                 `rgb( ${UIColorPicker.Color.r}, 
                     ${UIColorPicker.Color.g}, 
                     ${UIColorPicker.Color.b} )`;
             }
-            _setMouseTracking(hueSlider, updateCanvasBackground);
+            _setMouseTracking( hueSlider, updateCanvasBackground );
+            _setMouseTracking( picker, updateCanvasBackground );
         };
     
         
         const init = function init() {
-            updateCanvasBackground();
+            updateCanvas();
         }
 
         return {
@@ -339,7 +344,7 @@ const ColorPickerTool = (function ColorPickerTool() {
 
     const init = function init() {
         UIColorPicker.init();
-        updateCanvas();
+        Tool.init();
         // inputSliderManager.init();
     };
 
