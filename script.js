@@ -271,8 +271,6 @@ const UIColorPicker = (function UIColorPIcker() {
     };
 })();
 
-
-
 // const inputSliderManager = (function inputSliderManager() {
 // 	/*========== Make an element resizable relative to it's parent ==========*/
 
@@ -284,16 +282,6 @@ const UIColorPicker = (function UIColorPIcker() {
 //         init: init,
 //     };
 // })();
-
-
-
-
-
-
-
-window.addEventListener('load', function() {
-    ColorPickerTool.init()
-});
 
 
 const ColorPickerTool = (function ColorPickerTool() {
@@ -317,8 +305,8 @@ const ColorPickerTool = (function ColorPickerTool() {
         //						  update canvas background
         /*************************************************************************/
         const updateCanvas = function canvasSample() {
-            const hueSlider = getElemById('slider');
-            const picker = getElemById('picker');
+            const hue = getElemById('hue'); // tracks the parent div of #slider
+            const spectrumCanvas = getElemById('spectrum__canvas'); // tracks the parent div of #picker
             
             function updateCanvasBackground() {
                 const canvasSample = getElemById('canvas-sample');
@@ -328,13 +316,27 @@ const ColorPickerTool = (function ColorPickerTool() {
                     ${UIColorPicker.Color.g}, 
                     ${UIColorPicker.Color.b} )`;
             }
-            _setMouseTracking( hueSlider, updateCanvasBackground );
-            _setMouseTracking( picker, updateCanvasBackground );
+            _setMouseTracking( hue, updateCanvasBackground );
+            _setMouseTracking( spectrumCanvas, updateCanvasBackground );
         };
+
+        /*************************************************************************/
+        //						   update output elements
+        /*************************************************************************/
+        const updateOutput = (function updateOutput() {
+
+            const init = function init() {
+
+            }
+
+            return {
+                init,
+            }
+        })();
     
-        
         const init = function init() {
             updateCanvas();
+            updateOutput.init();
         }
 
         return {
@@ -352,6 +354,10 @@ const ColorPickerTool = (function ColorPickerTool() {
         init: init
     };
 })();
+
+window.addEventListener('load', function() {
+    ColorPickerTool.init()
+});
 
 // footer script
 function addDynamicFooterDate() {
