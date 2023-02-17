@@ -185,10 +185,10 @@ const UIColorPicker = (function UIColorPIcker() {
 	//						Update picking-area background color
 	/*************************************************************************/
     const PickingArea = (function PickingArea() {
-        const pickingArea = getElemById('picking-area');
         const hueArea = getElemById('hue');
-
+        
         const changePickingAreaBackground = function changePickingAreaBackground() {
+            const pickingArea = getElemById('picking-area');
             pickingArea.style.backgroundColor = `hsl(${Color.hue}, 100%, 50%)`;
         }
 
@@ -312,16 +312,35 @@ const ColorPickerTool = (function ColorPickerTool() {
         });
     };
 
-
-    const updateCanvas = function canvasSample() {
-        const canvasSample = getElemById('canvas-sample');
-
+    const Tool = (function Tool() {
+        const updateCanvas = function canvasSample() {
+            const hueSlider = getElemById('slider');
+            const picker = getElemById('picker');
+            
+            function updateCanvasBackground() {
+                const canvasSample = getElemById('canvas-sample');
+                canvasSample.style.backgroundColor = 
+                `rgb( ${UIColorPicker.Color.r}, 
+                    ${UIColorPicker.Color.g}, 
+                    ${UIColorPicker.Color.b} )`;
+            }
+            _setMouseTracking(hueSlider, updateCanvasBackground);
+        };
+    
         
-    }
+        const init = function init() {
+            updateCanvasBackground();
+        }
+
+        return {
+            init,
+        }
+    })();
 
     const init = function init() {
         UIColorPicker.init();
-        inputSliderManager.init();
+        updateCanvas();
+        // inputSliderManager.init();
     };
 
     return {
