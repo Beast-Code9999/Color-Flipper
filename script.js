@@ -273,17 +273,17 @@ const UIColorPicker = (function UIColorPIcker() {
 
 
 
-const inputSliderManager = (function inputSliderManager() {
-	/*========== Make an element resizable relative to it's parent ==========*/
+// const inputSliderManager = (function inputSliderManager() {
+// 	/*========== Make an element resizable relative to it's parent ==========*/
 
-    const init = function init() {
+//     const init = function init() {
 
-    };
+//     };
 
-    return {
-        init: init,
-    };
-})();
+//     return {
+//         init: init,
+//     };
+// })();
 
 
 
@@ -301,8 +301,22 @@ const ColorPickerTool = (function ColorPickerTool() {
 		return document.getElementById(id);
 	}
 
+    const _setMouseTracking = function _setMouseTracking(elem, callback) { // tracks mouse movement
+        elem.addEventListener('mousedown', function(e) {
+            callback(e);
+            document.addEventListener('mousemove', callback);
+        });
+
+        document.addEventListener('mouseup', function(e) {
+            document.removeEventListener('mousemove', callback);
+        });
+    };
+
+
     const updateCanvas = function canvasSample() {
         const canvasSample = getElemById('canvas-sample');
+
+        
     }
 
     const init = function init() {
