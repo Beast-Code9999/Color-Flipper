@@ -324,8 +324,12 @@ const ColorPickerTool = (function ColorPickerTool() {
         //						   update output elements
         /*************************************************************************/
         const updateOutput = (function updateOutput() {
+            const hue = getElemById('hue'); 
+            const spectrumCanvas = getElemById('spectrum__canvas'); 
+
             const hex = function hex() {
-                
+                const output = getElemById('output__code--hex');
+
                 function getHex() {
                     var r = UIColorPicker.Color.r.toString(16);
                     var g = UIColorPicker.Color.g.toString(16);
@@ -334,9 +338,10 @@ const ColorPickerTool = (function ColorPickerTool() {
                     if (UIColorPicker.Color.g < 16) g = '0' + g;
                     if (UIColorPicker.Color.b < 16) b = '0' + b;
                     var value = '#' + r + g + b;
+                    // console.log(value)
                     return value.toUpperCase();
                 }
-
+                output.textContent = `${getHex()}`;
             };
 
             const rgb = function rgb() {
@@ -355,12 +360,17 @@ const ColorPickerTool = (function ColorPickerTool() {
 
             };
 
-            const init = function init() {
+            const updateAllOutput = function updateAllOutput() {
                 hex();
                 rgb();
                 cmyk();
                 hsv();
                 hsl();
+            };
+
+            const init = function init() {
+                _setMouseTracking( hue, updateAllOutput );
+                _setMouseTracking( spectrumCanvas, updateAllOutput );
             }
 
             return {
