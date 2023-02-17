@@ -345,18 +345,28 @@ const ColorPickerTool = (function ColorPickerTool() {
             };
 
             const rgb = function rgb() {
-
+                const output = getElemById('output__code--rgb');
+                output.textContent = 
+                `${UIColorPicker.Color.r}, 
+                    ${UIColorPicker.Color.g}, 
+                    ${UIColorPicker.Color.b}`;
             };
 
             const cmyk = function cmyk() {
+                const output = getElemById('output__code--cmyk');
+
 
             };
             
             const hsv = function hsv() {
+                const output = getElemById('output__code--hsv');
+
 
             };
 
             const hsl = function hsl() {
+                const output = getElemById('output__code--hsl');
+
 
             };
 
