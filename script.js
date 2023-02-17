@@ -324,14 +324,37 @@ const ColorPickerTool = (function ColorPickerTool() {
         //						   update output elements
         /*************************************************************************/
         const updateOutput = (function updateOutput() {
+            const hex = function hex() {
+
+            };
+
+            const rgb = function rgb() {
+
+            };
+
+            const cmyk = function cmyk() {
+
+            };
+            
+            const hsv = function hsv() {
+
+            };
+
+            const hsl = function hsl() {
+
+            };
 
             const init = function init() {
-
+                hex();
+                rgb();
+                cmyk();
+                hsv();
+                hsl();
             }
 
             return {
                 init,
-            }
+            };
         })();
     
         const init = function init() {
@@ -356,13 +379,13 @@ const ColorPickerTool = (function ColorPickerTool() {
 })();
 
 window.addEventListener('load', function() {
-    ColorPickerTool.init()
+    ColorPickerTool.init();
 });
 
 // footer script
 function addDynamicFooterDate() {
     const footer = document.querySelector('.footer__year');
-    let year = new Date().getFullYear()
+    let year = new Date().getFullYear();
     footer.textContent = year;
 };
 addDynamicFooterDate();
