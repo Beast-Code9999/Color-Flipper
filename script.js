@@ -111,6 +111,10 @@ const UIColorPicker = (function UIColorPIcker() {
 
         }
 
+        const setCMYK = function setCMYK() {
+            
+        }
+
         function HSVtoRGB() { // complicated conversion of HSV color type to RGB
             var sat = Color.saturation / 100;
             var value = Color.value / 100;
@@ -280,6 +284,7 @@ const UIColorPicker = (function UIColorPIcker() {
     return {
         init: init,
         Color: Color,
+        SetConvert: SetConvert,
     };
 })();
 
