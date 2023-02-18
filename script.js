@@ -446,8 +446,11 @@ const ColorPickerTool = (function ColorPickerTool() {
 
             const cmyk = function cmyk() {
                 const output = getElemById('output__code--cmyk');
-
-
+                output.textContent = 
+                `${UIColorPicker.Color.c}%, 
+                 ${UIColorPicker.Color.m}%, 
+                 ${UIColorPicker.Color.y}%,
+                 ${UIColorPicker.Color.k}%`
             };
             
             const hsv = function hsv() {
