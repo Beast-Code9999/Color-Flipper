@@ -144,17 +144,17 @@ const UIColorPicker = (function UIColorPIcker() {
         };
 
         function RGBtoHSL() {
-            var red		= Color.r / 255;
-            var green	= Color.g / 255;
-            var blue	= Color.b / 255;
+            let red		= Color.r / 255;
+            let green	= Color.g / 255;
+            let blue	= Color.b / 255;
     
-            var cmax = Math.max(red, green, blue);
-            var cmin = Math.min(red, green, blue);
-            var delta = cmax - cmin;
-            var hue = 0;
-            var saturation = 0;
-            var lightness = (cmax + cmin) / 2;
-            var X = (1 - Math.abs(2 * lightness - 1));
+            let cmax = Math.max(red, green, blue);
+            let cmin = Math.min(red, green, blue);
+            let delta = cmax - cmin;
+            let hue = 0;
+            let saturation = 0;
+            let lightness = (cmax + cmin) / 2;
+            let X = (1 - Math.abs(2 * lightness - 1));
     
             if (delta) {
                 if (cmax === red ) { hue = ((green - blue) / delta); }
@@ -177,10 +177,10 @@ const UIColorPicker = (function UIColorPIcker() {
         }
 
         function RGBtoCMYK() {
-            var c = 1 - (Color.r / 255);
-            var m = 1 - (Color.g / 255);
-            var y = 1 - (Color.b / 255);
-            var k = Math.min(c, Math.min(m, y));
+            let c = 1 - (Color.r / 255);
+            let m = 1 - (Color.g / 255);
+            let y = 1 - (Color.b / 255);
+            let k = Math.min(c, Math.min(m, y));
             
             c = (c - k) / (1 - k);
             m = (m - k) / (1 - k);
