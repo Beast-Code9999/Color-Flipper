@@ -110,7 +110,7 @@ const UIColorPicker = (function UIColorPIcker() {
         };  
 
         const setHSL = function setHSL() {
-
+            Color.hsl = `${RGBtOHSL()}`;
         }
 
         const setCMYK = function setCMYK() {
@@ -142,14 +142,48 @@ const UIColorPicker = (function UIColorPIcker() {
             if (H >= 5 && H < 6) {	setRGB(C, m, X);	return; }
         };
 
+        function RGBtoHSL() {
+            var red		= Color.r / 255;
+            var green	= Color.g / 255;
+            var blue	= Color.b / 255;
+    
+            var cmax = Math.max(red, green, blue);
+            var cmin = Math.min(red, green, blue);
+            var delta = cmax - cmin;
+            var hue = 0;
+            var saturation = 0;
+            var lightness = (cmax + cmin) / 2;
+            var X = (1 - Math.abs(2 * lightness - 1));
+    
+            if (delta) {
+                if (cmax === red ) { hue = ((green - blue) / delta); }
+                if (cmax === green ) { hue = 2 + (blue - red) / delta; }
+                if (cmax === blue ) { hue = 4 + (red - green) / delta; }
+                if (cmax) saturation = delta / X;
+            }
+
+            let finalHue;
+            let finalSaturation;
+            let finalLightness;
+    
+            finalHue = 60 * hue | 0;
+            if (finalHue < 0) finalHue += 360;
+            finalSaturation = (saturation * 100) | 0;
+            finalLightness = (lightness * 100) | 0;
+
+            let value = `${finalHue}%, ${finalSaturation}%, ${finalLightness}%`;
+
+            return value;
+        }
+
         function RGBtoHEX() {
-            var r = Color.r.toString(16);
-            var g = Color.g.toString(16);
-            var b = Color.b.toString(16);
+            let r = Color.r.toString(16);
+            let g = Color.g.toString(16);
+            let b = Color.b.toString(16);
             if (Color.r < 16) r = '0' + r;
             if (Color.g < 16) g = '0' + g;
             if (Color.b < 16) b = '0' + b;
-            var value = '#' + r + g + b;
+            let value = '#' + r + g + b;
             // console.log(value)
             return value.toUpperCase();
         }
@@ -366,7 +400,6 @@ const ColorPickerTool = (function ColorPickerTool() {
 
             const hex = function hex() {
                 const output = getElemById('output__code--hex');
-
                 output.textContent = `${UIColorPicker.Color.hex}`;
             };
 
@@ -393,35 +426,11 @@ const ColorPickerTool = (function ColorPickerTool() {
             };
 
             const hsl = function hsl() {
-                // const output = getElemById('output__code--hsl');
-                // var red		= UIColorPicker.Color.r / 255;
-                // var green	= UIColorPicker.Color.g / 255;
-                // var blue	= UIColorPicker.Color.b / 255;
-        
-                // var cmax = Math.max(red, green, blue);
-                // var cmin = Math.min(red, green, blue);
-                // var delta = cmax - cmin;
-                // var hue = 0;
-                // var saturation = 0;
-                // var lightness = (cmax + cmin) / 2;
-                // var X = (1 - Math.abs(2 * lightness - 1));
-        
-                // if (delta) {
-                //     if (cmax === red ) { hue = ((green - blue) / delta); }
-                //     if (cmax === green ) { hue = 2 + (blue - red) / delta; }
-                //     if (cmax === blue ) { hue = 4 + (red - green) / delta; }
-                //     if (cmax) saturation = delta / X;
-                // }
-        
-                // UIColorPicker.Color.hue = 60 * hue | 0;
-                // if (UIColorPicker.Color.hue < 0) UIColorPicker.Color.hue += 360;
-                // UIColorPicker.Color.saturation = (saturation * 100) | 0;
-                // UIColorPicker.Color.lightness = (lightness * 100) | 0;
-
-                // output.textContent = 
-                // `${UIColorPicker.Color.hue}°, 
-                //  ${UIColorPicker.Color.saturation}%, 
-                //  ${UIColorPicker.Color.lightness}%`;
+                const output = getElemById('output__code--hsl');
+                output.textContent = 
+                `${UIColorPicker.Color.hue}°, 
+                 ${UIColorPicker.Color.saturation}%, 
+                 ${UIColorPicker.Color.lightness}%`;
             };
 
             const updateAllOutput = function updateAllOutput() {
