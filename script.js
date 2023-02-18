@@ -114,7 +114,8 @@ const UIColorPicker = (function UIColorPIcker() {
         }
 
         const setCMYK = function setCMYK() {
-
+            RGBtoCMYK()
+            console.log(Color.c, Color.m, Color.y, Color.k)
         }
 
         const setHEX = function setHEX() {
@@ -176,7 +177,29 @@ const UIColorPicker = (function UIColorPIcker() {
         }
 
         function RGBtoCMYK() {
+            var c = 1 - (Color.r / 255);
+            var m = 1 - (Color.g / 255);
+            var y = 1 - (Color.b / 255);
+            var k = Math.min(c, Math.min(m, y));
             
+            c = (c - k) / (1 - k);
+            m = (m - k) / (1 - k);
+            y = (y - k) / (1 - k);
+        
+            c = Math.round((c * 10000) / 100);
+            m = Math.round((m * 10000) / 100);
+            y = Math.round((y * 10000) / 100);
+            k = Math.round((k * 10000) / 100);
+            
+            c = isNaN(c) ? 0 : c;
+            m = isNaN(m) ? 0 : m;
+            y = isNaN(y) ? 0 : y;
+            k = isNaN(k) ? 0 : k;
+            
+            Color.c = c;
+            Color.m = m;
+            Color.y = y;
+            Color.k = k;
         }
 
         function RGBtoHEX() {
@@ -194,8 +217,9 @@ const UIColorPicker = (function UIColorPIcker() {
         return {
             setRGB,
             setHSV,
-            setHEX,
             setHSL,
+            setCMYK,
+            setHEX,
         }
     })();
 
@@ -238,6 +262,7 @@ const UIColorPicker = (function UIColorPIcker() {
             SetConvert.setHSV( Color.hue, Color.saturation, Color.value );
             SetConvert.setHEX();
             SetConvert.setHSL();
+            SetConvert.setCMYK();
 
             function updatePickerBackground() {
                 const picker = getElemById('picker');
@@ -314,6 +339,7 @@ const UIColorPicker = (function UIColorPIcker() {
             SetConvert.setHSV( Color.hue, saturation, value );
             SetConvert.setHEX();
             SetConvert.setHSL();
+            SetConvert.setCMYK();
 
             // console.log( Color.r, Color.g, Color.b )
 
@@ -388,7 +414,7 @@ const ColorPickerTool = (function ColorPickerTool() {
             
             function updateCanvasBackground() {
                 const canvasSample = getElemById('canvas-sample');
-                console.log( UIColorPicker.Color.r, UIColorPicker.Color.g, UIColorPicker.Color.b)
+                // console.log( UIColorPicker.Color.r, UIColorPicker.Color.g, UIColorPicker.Color.b)
                 canvasSample.style.backgroundColor = 
                 `rgb( ${UIColorPicker.Color.r}, 
                     ${UIColorPicker.Color.g}, 
