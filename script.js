@@ -110,7 +110,7 @@ const UIColorPicker = (function UIColorPIcker() {
         };  
 
         const setHSL = function setHSL() {
-            Color.hsl = `${RGBtOHSL()}`;
+            Color.hsl = `${RGBtoHSL()}`;
         }
 
         const setCMYK = function setCMYK() {
@@ -171,8 +171,7 @@ const UIColorPicker = (function UIColorPIcker() {
             finalSaturation = (saturation * 100) | 0;
             finalLightness = (lightness * 100) | 0;
 
-            let value = `${finalHue}%, ${finalSaturation}%, ${finalLightness}%`;
-
+            let value = `${finalHue}°, ${finalSaturation}%, ${finalLightness}%`;
             return value;
         }
 
@@ -192,6 +191,7 @@ const UIColorPicker = (function UIColorPIcker() {
             setRGB,
             setHSV,
             setHEX,
+            setHSL,
         }
     })();
 
@@ -233,6 +233,7 @@ const UIColorPicker = (function UIColorPIcker() {
             Color.hue = hue;
             SetConvert.setHSV( Color.hue, Color.saturation, Color.value );
             SetConvert.setHEX();
+            SetConvert.setHSL();
 
             function updatePickerBackground() {
                 const picker = getElemById('picker');
@@ -308,6 +309,8 @@ const UIColorPicker = (function UIColorPIcker() {
 
             SetConvert.setHSV( Color.hue, saturation, value );
             SetConvert.setHEX();
+            SetConvert.setHSL();
+
             // console.log( Color.r, Color.g, Color.b )
 
             _updatePickerPosition( x, y );
@@ -428,9 +431,7 @@ const ColorPickerTool = (function ColorPickerTool() {
             const hsl = function hsl() {
                 const output = getElemById('output__code--hsl');
                 output.textContent = 
-                `${UIColorPicker.Color.hue}°, 
-                 ${UIColorPicker.Color.saturation}%, 
-                 ${UIColorPicker.Color.lightness}%`;
+                `${UIColorPicker.Color.hsl}`;
             };
 
             const updateAllOutput = function updateAllOutput() {
