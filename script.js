@@ -118,7 +118,7 @@ const UIColorPicker = (function UIColorPIcker() {
         }
 
         const setHEX = function setHEX() {
-
+            Color.hex = `${RGBtoHEX()}`;
         }
 
         function HSVtoRGB() { // complicated conversion of HSV color type to RGB
@@ -143,12 +143,21 @@ const UIColorPicker = (function UIColorPIcker() {
         };
 
         function RGBtoHEX() {
-
+            var r = Color.r.toString(16);
+            var g = Color.g.toString(16);
+            var b = Color.b.toString(16);
+            if (Color.r < 16) r = '0' + r;
+            if (Color.g < 16) g = '0' + g;
+            if (Color.b < 16) b = '0' + b;
+            var value = '#' + r + g + b;
+            // console.log(value)
+            return value.toUpperCase();
         }
 
         return {
             setRGB,
             setHSV,
+            setHEX,
         }
     })();
 
@@ -189,6 +198,7 @@ const UIColorPicker = (function UIColorPIcker() {
             _updateHueSliderColor( hue );
             Color.hue = hue;
             SetConvert.setHSV( Color.hue, Color.saturation, Color.value );
+            SetConvert.setHEX();
 
             function updatePickerBackground() {
                 const picker = getElemById('picker');
@@ -263,6 +273,7 @@ const UIColorPicker = (function UIColorPIcker() {
             var value = 100 - (y * 100 / height) | 0;
 
             SetConvert.setHSV( Color.hue, saturation, value );
+            SetConvert.setHEX();
             // console.log( Color.r, Color.g, Color.b )
 
             _updatePickerPosition( x, y );
@@ -294,7 +305,6 @@ const UIColorPicker = (function UIColorPIcker() {
     return {
         init: init,
         Color: Color,
-        SetConvert: SetConvert,
     };
 })();
 
@@ -357,18 +367,7 @@ const ColorPickerTool = (function ColorPickerTool() {
             const hex = function hex() {
                 const output = getElemById('output__code--hex');
 
-                function getHex() {
-                    var r = UIColorPicker.Color.r.toString(16);
-                    var g = UIColorPicker.Color.g.toString(16);
-                    var b = UIColorPicker.Color.b.toString(16);
-                    if (UIColorPicker.Color.r < 16) r = '0' + r;
-                    if (UIColorPicker.Color.g < 16) g = '0' + g;
-                    if (UIColorPicker.Color.b < 16) b = '0' + b;
-                    var value = '#' + r + g + b;
-                    // console.log(value)
-                    return value.toUpperCase();
-                }
-                output.textContent = `${getHex()}`;
+                // output.textContent = `${}`;
             };
 
             const rgb = function rgb() {
