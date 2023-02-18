@@ -70,6 +70,7 @@ const UIColorPicker = (function UIColorPIcker() {
         let m = 0
         let y = 0;
         let k = 0;
+        let hex = '';
 
         return {
             r,
@@ -83,6 +84,7 @@ const UIColorPicker = (function UIColorPIcker() {
             m,
             y,
             k,
+            hex,
         }
     })();
 
@@ -112,7 +114,11 @@ const UIColorPicker = (function UIColorPIcker() {
         }
 
         const setCMYK = function setCMYK() {
-            
+
+        }
+
+        const setHEX = function setHEX() {
+
         }
 
         function HSVtoRGB() { // complicated conversion of HSV color type to RGB
@@ -135,6 +141,10 @@ const UIColorPicker = (function UIColorPIcker() {
             if (H >= 4 && H < 5) {	setRGB(X, m, C);	return; }
             if (H >= 5 && H < 6) {	setRGB(C, m, X);	return; }
         };
+
+        function RGBtoHEX() {
+
+        }
 
         return {
             setRGB,
