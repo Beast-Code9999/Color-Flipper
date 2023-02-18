@@ -66,6 +66,10 @@ const UIColorPicker = (function UIColorPIcker() {
         let saturation = 100;
         let value = 100;
         let hsl = '';
+        let c = 0;
+        let m = 0
+        let y = 0;
+        let k = 0;
 
         return {
             r,
@@ -75,6 +79,10 @@ const UIColorPicker = (function UIColorPIcker() {
             saturation,
             value,
             hsl,
+            c, 
+            m,
+            y,
+            k,
         }
     })();
 
@@ -100,7 +108,7 @@ const UIColorPicker = (function UIColorPIcker() {
         };  
 
         const setHSL = function setHSL() {
-            
+
         }
 
         function HSVtoRGB() { // complicated conversion of HSV color type to RGB
