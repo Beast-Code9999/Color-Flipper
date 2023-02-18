@@ -175,6 +175,10 @@ const UIColorPicker = (function UIColorPIcker() {
             return value;
         }
 
+        function RGBtoCMYK() {
+            
+        }
+
         function RGBtoHEX() {
             let r = Color.r.toString(16);
             let g = Color.g.toString(16);
