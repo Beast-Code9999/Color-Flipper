@@ -362,6 +362,10 @@ const UIColorPicker = (function UIColorPIcker() {
         }
     })();
 
+    function copyHex() {
+        
+    }
+
 
     const init = function init() {
         HueSlider.updateHueArea();
