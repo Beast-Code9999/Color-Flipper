@@ -363,7 +363,15 @@ const UIColorPicker = (function UIColorPIcker() {
     })();
 
     function copyHex() {
-        
+        const copyElem = getElemById("output__copy");
+        const hex = getElemById("output__code--hex");
+
+        function copy() {
+            navigator.clipboard.writeText(hex.textContent).then(function() {
+                alert("Text copied");
+            })
+        }
+        copyElem.addEventListener('click', copy);
     }
 
 
@@ -371,6 +379,7 @@ const UIColorPicker = (function UIColorPIcker() {
         HueSlider.updateHueArea();
         PickingArea.updatePickingArea();
         Picker.updatePickerArea();
+        copyHex();
     };
 
     return {
