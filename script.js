@@ -367,7 +367,7 @@ const ColorPickerTool = (function ColorPickerTool() {
             const hex = function hex() {
                 const output = getElemById('output__code--hex');
 
-                // output.textContent = `${}`;
+                output.textContent = `${UIColorPicker.Color.hex}`;
             };
 
             const rgb = function rgb() {
