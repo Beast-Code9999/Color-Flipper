@@ -111,23 +111,23 @@ const UIColorPicker = (function UIColorPIcker() {
 
         const setHSL = function setHSL() {
             Color.hsl = `${RGBtoHSL()}`;
-        }
+        };
 
         const setCMYK = function setCMYK() {
             RGBtoCMYK()
             console.log(Color.c, Color.m, Color.y, Color.k)
-        }
+        };
 
         const setHEX = function setHEX() {
             Color.hex = `${RGBtoHEX()}`;
-        }
+        };
 
         const setColors = function setColors( hue, saturation, value ) {
             setHSV( hue, saturation, value );
             setHSL();
             setCMYK();
             setHEX();
-        }
+        };
 
         function HSVtoRGB() { // complicated conversion of HSV color type to RGB
             var sat = Color.saturation / 100;
@@ -228,7 +228,7 @@ const UIColorPicker = (function UIColorPIcker() {
             setCMYK,
             setHEX,
             setColors,
-        }
+        };
     })();
 
     /*************************************************************************/
@@ -296,7 +296,7 @@ const UIColorPicker = (function UIColorPIcker() {
         const changePickingAreaBackground = function changePickingAreaBackground() {
             const pickingArea = getElemById('picking-area');
             pickingArea.style.backgroundColor = `hsl(${Color.hue}, 100%, 50%)`;
-        }
+        };
 
         const updatePickingArea = function updatePickingArea() {
             _setMouseTracking( hueArea, changePickingAreaBackground )
@@ -315,12 +315,12 @@ const UIColorPicker = (function UIColorPIcker() {
             const picker = getElemById('picker');
             picker.style.left = (left - 10) + 'px';// -10 allows half of the picker (1 rem) to...
             picker.style.top = (top - 10) + 'px'; // exit the top && left border
-        }
+        };
 
         const _updatePickerColor = function _updatePickerColor() {
             const picker = getElemById('picker');
             picker.style.backgroundColor = `rgb( ${Color.r}, ${Color.g}, ${Color.b} )`;
-        }
+        };
 
         const _updatePicker = function _updatePicker( e ) {
             const pickingArea = getElemById('spectrum__canvas');
@@ -353,16 +353,16 @@ const UIColorPicker = (function UIColorPIcker() {
             // console.log(pickingArea.offsetLeft)
             // console.log(picking.offsetLeft)
             // console.log(x, y)
-        }
+        };
 
         const updatePickerArea = function updatePickerArea() {
             const pickingArea = getElemById('spectrum__canvas');
             _setMouseTracking( pickingArea, _updatePicker )
-        }
+        };
 
         return {
             updatePickerArea,
-        }
+        };
     })();
 
     function copyHex() {
@@ -466,7 +466,7 @@ const ColorPickerTool = (function ColorPickerTool() {
                 `${UIColorPicker.Color.c}%, 
                  ${UIColorPicker.Color.m}%, 
                  ${UIColorPicker.Color.y}%,
-                 ${UIColorPicker.Color.k}%`
+                 ${UIColorPicker.Color.k}%`;
             };
             
             const hsv = function hsv() {
