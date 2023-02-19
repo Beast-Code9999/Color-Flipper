@@ -186,10 +186,10 @@ const UIColorPicker = (function UIColorPIcker() {
             m = (m - k) / (1 - k);
             y = (y - k) / (1 - k);
         
-            c = Math.round((c * 10000) / 100);
-            m = Math.round((m * 10000) / 100);
-            y = Math.round((y * 10000) / 100);
-            k = Math.round((k * 10000) / 100);
+            c = Math.round((c * 100));
+            m = Math.round((m * 100));
+            y = Math.round((y * 100));
+            k = Math.round((k * 100));
             
             c = isNaN(c) ? 0 : c;
             m = isNaN(m) ? 0 : m;
@@ -373,7 +373,6 @@ const UIColorPicker = (function UIColorPIcker() {
         }
         copyElem.addEventListener('click', copy);
     }
-
 
     const init = function init() {
         HueSlider.updateHueArea();
