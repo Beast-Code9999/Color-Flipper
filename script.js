@@ -122,6 +122,13 @@ const UIColorPicker = (function UIColorPIcker() {
             Color.hex = `${RGBtoHEX()}`;
         }
 
+        const setColors = function setColors() {
+            setHSV();
+            setHSL();
+            setCMYK();
+            setHEX();
+        }
+
         function HSVtoRGB() { // complicated conversion of HSV color type to RGB
             var sat = Color.saturation / 100;
             var value = Color.value / 100;
@@ -220,6 +227,7 @@ const UIColorPicker = (function UIColorPIcker() {
             setHSL,
             setCMYK,
             setHEX,
+            setColors,
         }
     })();
 
@@ -387,17 +395,18 @@ const UIColorPicker = (function UIColorPIcker() {
     };
 })();
 
-// const inputSliderManager = (function inputSliderManager() {
-// 	/*========== Make an element resizable relative to it's parent ==========*/
+const TextInputManager = (function inputSliderManager() {
+	/*========== Make an element resizable relative to it's parent ==========*/
 
-//     const init = function init() {
 
-//     };
+    const init = function init() {
 
-//     return {
-//         init: init,
-//     };
-// })();
+    };
+
+    return {
+        init: init,
+    };
+})();
 
 
 const ColorPickerTool = (function ColorPickerTool() {
@@ -509,6 +518,7 @@ const ColorPickerTool = (function ColorPickerTool() {
 
     const init = function init() {
         UIColorPicker.init();
+        TextInputManager.init();
         Tool.init();
         // inputSliderManager.init();
     };
