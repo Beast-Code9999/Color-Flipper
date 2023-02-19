@@ -122,8 +122,8 @@ const UIColorPicker = (function UIColorPIcker() {
             Color.hex = `${RGBtoHEX()}`;
         }
 
-        const setColors = function setColors() {
-            setHSV();
+        const setColors = function setColors( hue, saturation, value ) {
+            setHSV( hue, saturation, value );
             setHSL();
             setCMYK();
             setHEX();
@@ -267,10 +267,8 @@ const UIColorPicker = (function UIColorPIcker() {
             _updateHueSliderPosition( x );
             _updateHueSliderColor( hue );
             Color.hue = hue;
-            SetConvert.setHSV( Color.hue, Color.saturation, Color.value );
-            SetConvert.setHEX();
-            SetConvert.setHSL();
-            SetConvert.setCMYK();
+
+            SetConvert.setColors( Color.hue, Color.saturation, Color.value );
 
             function updatePickerBackground() {
                 const picker = getElemById('picker');
@@ -344,10 +342,7 @@ const UIColorPicker = (function UIColorPIcker() {
             var saturation = x * 100 / width | 0;
             var value = 100 - (y * 100 / height) | 0;
 
-            SetConvert.setHSV( Color.hue, saturation, value );
-            SetConvert.setHEX();
-            SetConvert.setHSL();
-            SetConvert.setCMYK();
+            SetConvert.setColors( Color.hue, saturation, value );
 
             // console.log( Color.r, Color.g, Color.b )
 
